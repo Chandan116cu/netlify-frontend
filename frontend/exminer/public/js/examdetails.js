@@ -220,7 +220,7 @@ function excelUpload(event) {
     formData.append('examCode', tempExamCode)
     formData.append('excelFile', $('input[type=file]')[0].files[0])
     console.log(formData.get('excelFile'));
-    $.ajax('https://node-examportal.herokuapp.com/uploadExcel', {
+    $.ajax('https://node-examportal.herokuapp.com/exam/questions/uploadExcel', {
         type: 'POST',
         data: formData,
         headers: {
