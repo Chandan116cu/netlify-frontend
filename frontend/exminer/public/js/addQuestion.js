@@ -120,7 +120,7 @@ $(document).ready(function() {
         console.log(formData.values('examCode'))
         formData.append('answerType', answerType);
         formData.append('questionImage', $('input[type=file]')[0].files[0]);
-        $.ajax("http://localhost:"+localStorage.getItem('server-port')+"/exam/question", {
+        $.ajax("https://node-examportal.herokuapp.com/exam/question", {
             type: "POST",
             data: formData,
             dataType: "json",
