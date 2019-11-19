@@ -1,0 +1,48 @@
+ #node-server {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 18px 20px 13px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#dot-net-server{
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 18px 20px 13px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+#dot-net-server img{
+   width: 20px;
+   height: 20px;
+   position: relative;
+   top: 0px;
+}
+
+.heading{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-size: 56px;
+    margin-top: 100px;
+    margin-bottom: 0;
+}
+
+.text{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-size: 30px;
+}
+.button-center{
+    text-align: center;
+}
