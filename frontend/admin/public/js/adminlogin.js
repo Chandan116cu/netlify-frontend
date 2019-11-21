@@ -5,7 +5,7 @@ $(document).ready(function(){
         var pwd=document.getElementById("password").value;
         console.log(em);
         console.log(pwd);
-        $.ajax("https://node-examportal.herokuapp.com/adminlogin",{
+        $.ajax("http://localhost:"+localStorage.getItem('server-port')+"/adminlogin",{
         type:"POST",
         dataType:"json",
         contentType:"application/json",

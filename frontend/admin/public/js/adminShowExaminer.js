@@ -1,3 +1,4 @@
+
 function deleteexaminer(id)
 {
   $("#modelid").attr('id',id)
@@ -28,7 +29,7 @@ $(document).ready(function () {
   //   location.replace("../../index.html")
   // }
   //$.ajax('http://localhost:'+localStorage.getItem('server-port')+'/exam/accessKey', {
-  $.ajax("https://node-examportal.herokuapp.com/examiner", {
+  $.ajax("http://localhost:"+localStorage.getItem('server-port')+"/examiner", {
     type: "GET",
     dataType: 'JSON',
     contentType: "application/json;charset=utf-8",
@@ -55,7 +56,7 @@ $(document).ready(function () {
   $(document).on('click', '.deleteButton', function () {
     let id = $(this).attr('id')
     console.log(id);
-    $.ajax("https://node-examportal.herokuapp.com/examiner/"+id, {
+    $.ajax("http://localhost:"+localStorage.getItem('server-port')+"/examiner/"+id, {
       type: "DELETE",
       dataType: "json",
       contentType: "application/json",
@@ -65,7 +66,6 @@ $(document).ready(function () {
         }
       ),
       success: function (recent) {
-        display(recent);
         window.location.replace("adminShowExaminer.html")
       },
       error: function () {
@@ -77,7 +77,7 @@ $(document).ready(function () {
 
   $(document).on('click', '.viewButton', function () {
     let id = $(this).attr('id')
-    $.ajax("https://node-examportal.herokuapp.com/examiner/id", {
+    $.ajax("http://127.0.0.1:"+localStorage.getItem('server-port')+"/examiner/id", {
       type: "GET",
       dataType: "json",
       contentType: "application/json",
