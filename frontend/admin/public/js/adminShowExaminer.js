@@ -66,7 +66,7 @@ $(document).ready(function () {
         }
       ),
       success: function (recent) {
-        window.location.replace("adminShowExaminer.html")
+        window.location.replace("../views/adminShowExaminer.html")
       },
       error: function () {
         console.log("Something went wrong");
