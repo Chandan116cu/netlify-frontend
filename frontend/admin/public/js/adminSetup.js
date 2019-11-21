@@ -69,6 +69,28 @@ function logout() {
     window.location.replace("../../index.html");
 }
 $(document).ready(function() {
+    const tok = localStorage.getItem('token');
+    if (tok == null) {
+        location.replace("../../index.html")
+    }
+    $.ajax("https://node-examportal.herokuapp.com/checkadmin", {
+        type: 'GET',
+        dataType: 'JSON',
+        headers: {
+            "token": localStorage.getItem('token'),
+            'Authorization': 'Bearer '+localStorage.getItem('token')
+
+        },
+        success: function(data) {
+            return
+        },
+        error: function(error) {
+            if(error.responseText=="unauthorized");
+            {
+                window.location.replace('../../un.html')
+            }
+        }
+    })
     $("#submit").click(function(e) {
         e.preventDefault();
         var email = document.getElementById("email").value;

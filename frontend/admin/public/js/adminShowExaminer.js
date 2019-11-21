@@ -41,6 +41,10 @@ $(document).ready(function () {
       // console.log(recent);
     },
     error: function (error) {
+      if (error.responseText == "unauthorized");
+      {
+        window.location.replace('../../un.html')
+      }
       console.log(error)
       console.log("Something went wrong");
     }
