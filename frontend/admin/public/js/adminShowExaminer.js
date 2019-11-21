@@ -29,7 +29,7 @@ $(document).ready(function () {
   //   location.replace("../../index.html")
   // }
   //$.ajax('http://localhost:'+localStorage.getItem('server-port')+'/exam/accessKey', {
-  $.ajax("http://localhost:"+localStorage.getItem('server-port')+"/examiner", {
+  $.ajax("https://node-examportal.herokuapp.com/examiner", {
     type: "GET",
     dataType: 'JSON',
     contentType: "application/json;charset=utf-8",
