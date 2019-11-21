@@ -18,7 +18,7 @@ function updateExam(examObjId) {
         examStartTime: $('#addExamDate').val(),
         instructions: $('#addExamInstruction').val()
     }
-    $.ajax("https://node-examportal.herokuapp.com/exam/" + examObjId, {
+    $.ajax("http://localhost:"+localStorage.getItem('server-port')+"/exam/" + examObjId, {
         type: 'PATCH',
         dataType: 'json',
         contentType: "application/json",
@@ -40,7 +40,7 @@ function editExamDetail(id) {
     let examObjId = $('#' + id).parent().parent().attr('id')
     let mainId = $('#' + id).parent().parent().parent().parent().attr('id')
     $('#' + mainId).hide()
-    $.ajax("https://node-examportal.herokuapp.com/exam/" + examObjId, {
+    $.ajax("http://localhost:"+localStorage.getItem('server-port')+"/exam/" + examObjId, {
         type: 'GET',
         dataType: 'json',
         contentType: "application/json",
@@ -50,7 +50,7 @@ function editExamDetail(id) {
         },
         success: function(data) {
             let editForm = $("#edit-exam-detail").html()
-            $("#display-form").append(Mustache.render(editForm, data[0]))
+            $("#display-form").append(Mustache.render(editForm, data))
         },
         error: function(error) {
             console.log(error)
@@ -64,7 +64,7 @@ function setId(id) {
 
 function deleteExam(id) {
     examObjId = $('#' + id).parent().parent().attr('id')
-    $.ajax("https://node-examportal.herokuapp.com/exam/" + examObjId, {
+    $.ajax("http://localhost:"+localStorage.getItem('server-port')+"/exam/" + examObjId, {
         type: 'DELETE',
         dataType: 'json',
         contentType: "application/json",
@@ -82,7 +82,8 @@ function deleteExam(id) {
 }
 
 $(document).ready(() => {
-        $.ajax("https://node-examportal.herokuapp.com/exam", {
+    debugger
+        $.ajax("http://localhost:"+localStorage.getItem('server-port')+"/exam", {
             type: 'GET',
             dataType: 'json',
             contentType: "application/json",
@@ -107,6 +108,10 @@ $(document).ready(() => {
                 if (error.responseText == 'No Exam') {
                     alert('No Exam created')
                     $(location).attr('href', '../views/examiner.html')
+                }
+                if(error.responseText=="unauthorized");
+                {
+                    window.location.replace('../../un.html')
                 }
             
             }

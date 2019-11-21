@@ -3,7 +3,7 @@ function removeQuestion(id){
     console.log(id)
     let qsId = $("#"+id).parent().parent().attr('id')
     console.log(qsId)
-    $.ajax("https://node-examportal.herokuapp.com/exam/question/"+qsId, {
+    $.ajax("http://localhost:"+localStorage.getItem('server-port')+"/exam/question/"+qsId, {
 
         type: 'DELETE',
         dataType: 'json',
@@ -59,7 +59,7 @@ function updateQues(id,type) {
             formData.append('answerType', "multipleOption");
             formData.append('questionImage', $('input[type=file]')[0].files[0]);
             // return
-    $.ajax("https://node-examportal.herokuapp.com/exam/question/" + id, {
+    $.ajax("http://localhost:"+localStorage.getItem('server-port')+"/exam/question/" + id, {
         type: 'PATCH',
         dataType: 'json',
         contentType: false,
@@ -83,7 +83,7 @@ function editQuestion(id) {
     let qid = $("#" + id).parent().parent().attr('id')
     let pid = $("#" + qid).parent().parent().parent().parent().attr('id')
     $('#' + pid).hide()
-    $.ajax("https://node-examportal.herokuapp.com/exam/question/" + qid, {
+    $.ajax("http://localhost:"+localStorage.getItem('server-port')+"/exam/question/" + qid, {
         type: 'GET',
         dataType: 'json',
         contentType: "application/json",
@@ -92,6 +92,7 @@ function editQuestion(id) {
             Authorization: "Bearer "+localStorage.getItem('token')
         },
         success: function(data) {
+            console.log(data);
             if(data.answerType== "multipleOption"){
                 let arr = data.answer.split(' ')
                 let editTemplate = $("#edit-question-template").html();
@@ -121,7 +122,7 @@ function editQuestion(id) {
 }
 $(document).ready(function(){
     let examCode = localStorage.getItem('examCode')
-    let url = "https://node-examportal.herokuapp.com/exam/"+ encodeURIComponent(examCode)+"/question"
+    let url = "http://localhost:"+localStorage.getItem('server-port')+"/exam/"+ encodeURIComponent(examCode)+"/question"
     $.ajax(url, {
         type: 'GET',
         dataType: 'json',
@@ -155,6 +156,11 @@ $(document).ready(function(){
                 alert("This exam has no Questions")
                 $(location).attr('href','../views/exam.html')
             }
+                if(error.responseText=="unauthorized");
+                {
+                    window.location.replace('../../un.html')
+                }
+            
         }
     })
 })

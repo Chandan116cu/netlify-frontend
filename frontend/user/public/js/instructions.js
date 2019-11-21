@@ -1,5 +1,5 @@
 $(document).on('click', '.startTest', function() {
-    $.ajax('https://node-examportal.herokuapp.com/exam/accessKey', {
+    $.ajax('http://localhost:'+localStorage.getItem('server-port')+'/exam/accessKey', {
         type: 'GET',
         dataType: 'JSON',
         headers: {
@@ -16,7 +16,6 @@ $(document).on('click', '.startTest', function() {
             } else {
                 $(location).attr('href', './question.html')
             }
-
         },
         error: function(error) { console.log(error)}
     })
@@ -44,7 +43,7 @@ function checkTimeForTest(time) {
 }
 
 $(document).ready(function() {
-    $.ajax('https://node-examportal.herokuapp.com/exam/accessKey', {
+    $.ajax('http://localhost:'+localStorage.getItem('server-port')+'/exam/accessKey', {
         type: 'GET',
         dataType: 'JSON',
         headers: {

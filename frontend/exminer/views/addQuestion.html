@@ -12,16 +12,19 @@
     <link rel="stylesheet" href="https://unpkg.com/bs-stepper/dist/css/bs-stepper.min.css">
     <script src="https://unpkg.com/bs-stepper/dist/js/bs-stepper.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-    <link rel="icon" href="https://www.cygrp.com/wp-content/uploads/2019/06/cybergroup-site-icon.png" type="image/x-icon">
+    <link rel="icon" href="https://www.cygrp.com/wp-content/uploads/2019/06/cybergroup-site-icon.png"
+        type="image/x-icon">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.1.0/mustache.js"></script>
+    <script type="text/javascript" src="../public/js//addQuestion.js"></script>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: black;">
         <img src="../../user/public/assets/cybergrouplogo.png" class="logo">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                                      <span class="navbar-toggler-icon"></span>
-                                    </button>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto ">
@@ -58,7 +61,7 @@
             </div> -->
                 <div class="stepwizard-step">
                     <a href="#step-3" class="btn btn-default btn-circle" disabled="disabled">2</a>
-                    <p>Add Questions</p>
+                    <p>Add Questions Manually</p>
                 </div>
             </div>
         </div>
@@ -70,16 +73,32 @@
                     <div class="col-md-12">
                         <!-- <h3> Step 2</h3> -->
                         <div class="file-field">
-                            <div class="btn btn-primary btn-sm float-left">
-                                <span>Choose file</span>
-                                <input type="file">
-                            </div>
-                            <div class="file-path-wrapper float-right">
-                                <input class="file-path validate" type="text" placeholder="Upload your file" style="margin-left: 40px;">
+                                    <input type="file" id="uploadExcelFile" name="uploadExcelFile" />
+                                    <button type="button" class="btn btn-primary" data-toggle="modal"
+                                data-target=".bd-example-modal-lg">View Sample Excel Sheet</button>
+
+                            <div class="modal fade bd-example-modal-lg modalSize" tabindex="-1" role="dialog"
+                                aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                            <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">This is sample Excel File Screenshot</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                      <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                  </div>
+                                                  <div class="modal-body">
+                                        <img class = "image-size" src="../public/assets/ExcelSample.png">
+                                    </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <button class="btn btn-success pull-right" type="button" style="margin-top: 80px;">Submit </button> &nbsp;&nbsp;&nbsp;
-                        <button class="btn btn-primary nextBtn  pull-right" type="button" style="margin-top: 80px;">Next</button>
+                        <button class="btn btn-primary nextBtn  pull-right" type="button"
+                        style="margin-top: 80px;">Next</button>
+                        <button class="btn btn-success pull-right" value="UploadExcelfile" type="button"name="submit" onclick="excelUpload(event)" style="margin-top: 80px;">UploadExcelFile
+                        </button> &nbsp;&nbsp;&nbsp;
+
                     </div>
                 </div>
             </div>
@@ -89,70 +108,92 @@
                         <!-- <h3> Step 3</h3> -->
                         <div class="form-group">
                             <label class="control-label">Question</label>
-                            <input maxlength="100" type="text" id="addtestQuestion" class="form-control" placeholder="Enter Question" />
+                            <input maxlength="100" type="text" id="addtestQuestion" class="form-control"
+                                placeholder="Enter Question" />
                         </div>
                         <div id="radiobtn">
-                            <label><input type="radio" name="colorRadio" value="green" id="colorRadio1" > Single Option</label>
-                            <label><input type="radio" name="colorRadio" value="red" id="colorRadio"> Multiple Option</label>
+                            <label><input type="radio" name="colorRadio" value="green" id="colorRadio1"> Single
+                                Option</label>
+                            <label><input type="radio" name="colorRadio" value="red" id="colorRadio"> Multiple
+                                Option</label>
                         </div>
                         <div class="red box" id="redbox">
                             <div class="form-group">
                                 <label class="control-label">Option1</label>
-                                <input type="checkbox" name="option" value="option1" class="form-checkbox" id="addtestAnswer">
-                                <input maxlength="100" type="text" id="addtestOption1" class="form-control" placeholder="Enter Option1" />
+                                <input type="checkbox" name="option" value="option1" class="form-checkbox"
+                                    id="addtestAnswer">
+                                <input maxlength="100" type="text" id="addtestOption1" class="form-control"
+                                    placeholder="Enter Option1" />
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Option2</label>
-                                <input type="checkbox" name="option" value="option2" class="form-checkbox" id="addtestAnswer">
-                                <input maxlength="100" type="text" id="addtestOption2" class="form-control" placeholder="Enter Option2" />
+                                <input type="checkbox" name="option" value="option2" class="form-checkbox"
+                                    id="addtestAnswer">
+                                <input maxlength="100" type="text" id="addtestOption2" class="form-control"
+                                    placeholder="Enter Option2" />
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Option3</label>
-                                <input type="checkbox" name="option" value="option3" class="form-checkbox" id="addtestAnswer">
-                                <input maxlength="100" type="text" id="addtestOption3" class="form-control" placeholder="Enter Option3" />
+                                <input type="checkbox" name="option" value="option3" class="form-checkbox"
+                                    id="addtestAnswer">
+                                <input maxlength="100" type="text" id="addtestOption3" class="form-control"
+                                    placeholder="Enter Option3" />
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Option4</label>
-                                <input type="checkbox" name="option" value="option4" class="form-checkbox" id="addtestAnswer">
-                                <input maxlength="100" type="text" id="addtestOption4" class="form-control" placeholder="Enter Option4" />
+                                <input type="checkbox" name="option" value="option4" class="form-checkbox"
+                                    id="addtestAnswer">
+                                <input maxlength="100" type="text" id="addtestOption4" class="form-control"
+                                    placeholder="Enter Option4" />
                             </div>
 
                         </div>
                         <div class="green box" id="greenbox">
                             <div class="form-group">
                                 <label class="control-label">Option1</label>
-                                <input type="radio" name="option1" value="option1" class="form-checkbox" id="addtestAnswer1">
-                                <input maxlength="100" type="text" id="addtestOption1G" class="form-control" placeholder="Enter Option1" />
+                                <input type="radio" name="option1" value="option1" class="form-checkbox"
+                                    id="addtestAnswer1">
+                                <input maxlength="100" type="text" id="addtestOption1G" class="form-control"
+                                    placeholder="Enter Option1" />
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Option2</label>
-                                <input type="radio" name="option1" value="option2" class="form-checkbox" id="addtestAnswer1">
-                                <input maxlength="100" type="text" id="addtestOption2G" class="form-control" placeholder="Enter Option2" />
+                                <input type="radio" name="option1" value="option2" class="form-checkbox"
+                                    id="addtestAnswer1">
+                                <input maxlength="100" type="text" id="addtestOption2G" class="form-control"
+                                    placeholder="Enter Option2" />
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Option3</label>
-                                <input type="radio" name="option1" value="option3" class="form-checkbox" id="addtestAnswer1">
-                                <input maxlength="100" type="text" id="addtestOption3G" class="form-control" placeholder="Enter Option3" />
+                                <input type="radio" name="option1" value="option3" class="form-checkbox"
+                                    id="addtestAnswer1">
+                                <input maxlength="100" type="text" id="addtestOption3G" class="form-control"
+                                    placeholder="Enter Option3" />
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Option4</label>
-                                <input type="radio" name="option1" value="option4" class="form-checkbox" id="addtestAnswer1">
-                                <input maxlength="100" type="text" id="addtestOption4G" class="form-control" placeholder="Enter Option4" />
+                                <input type="radio" name="option1" value="option4" class="form-checkbox"
+                                    id="addtestAnswer1">
+                                <input maxlength="100" type="text" id="addtestOption4G" class="form-control"
+                                    placeholder="Enter Option4" />
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label">Weightage</label>
-                            <input maxlength="100" type="text" id="addtestWeightage" class="form-control" placeholder="Enter Weightage" />
+                            <input maxlength="100" type="text" id="addtestWeightage" class="form-control"
+                                placeholder="Enter Weightage" />
                         </div>
-                        <button class="btn btn-success pull-right " type="button" id="submitBtn">Submit  Question</button>
+                        <button class="btn btn-success pull-right " type="button" id="submitBtn">Submit
+                            Question</button>
 
                     </div>
                 </div>
 
             </div>
-      </div>
+    </div>
     </div>
     </form>
 </body>
-   <script src="/exminer/public/js/addQuestion.js"></script>
+<script src="/exminer/public/js/addQuestion.js"></script>
+
 </html>

@@ -17,7 +17,7 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: black;">
-        <img src="../../user/public/assets/cybergrouplogo.png" class="logo">
+        <img src="../../user/public/assets/cybergrouplogo.png" class="logo" style="width: 12%;">
         <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -52,9 +52,11 @@
     <!-- append edit question template -->
     <div class="container-fluid" id="display-edit-form"></div>
     <!-- display question template -->
+    
     <script id="index-template" type="text/html">
-        <span class="qustion-index"><a href="#{{_id}}" >{{index}}</a></span>
+        <span class="qustion-index"><a href="#{{_id}}" >Question - {{index}}</a></span>
     </script>
+  
     <script id="question-template-body" type="text/html">
         <div class="row">
             <div class="col-md-12 question-div" id="{{_id}}">

@@ -1,68 +1,3 @@
-function showpasswordtext()
-{
-  var x = document.getElementById("password");
- 
-    x.type = "text";
-}
-
-function showpassword()
-{
-  var x = document.getElementById("password");
-  
-    x.type = "password";
-}
-
-function ValidateEmail(email)
-{
-    var mailformat =/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
-    
-   
-    if (mailformat.test(email) == false) 
-            {
-                return (false);
-            }
-            else
-            {
-                return (true);
-            }
-}
-function ValidatePhoneno(phoneno)
-{
-    var numbersformat = /^[0-9]+$/;
-    if (numbersformat.test(phoneno) == false) 
-            {
-                return (false);
-            }
-            else
-            {
-                return (true);
-            }
-}
-function ValidateName(name)
-{
-    var lettersformat = /^[a-zA-Z-,]+(\s{0,1}[a-zA-Z-, ])*$/
-    if (lettersformat.test(name) == false) 
-            {
-                return (false);
-            }
-            else
-            {
-                return (true);
-            }
-}
-function ValidatePassword(Password)
-{
-    //6 to 15 characters which contain at least one lowercase letter, one uppercase letter, one numeric digit, and one special character
-    var passwordformat=  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{6,15}$/;
-    if (passwordformat.test(Password) == false) 
-            {
-               return (false);
-            }
-            else
-            {
-                return (true);
-            }
-}
 function logout() {
     localStorage.removeItem("token");
     localStorage.clear()
@@ -78,27 +13,27 @@ $(document).ready(function() {
         var phoneno = document.getElementById("phoneno").value;
         var collegename = document.getElementById("collegename").value;
         var flag = 1;
-        if (email === ""||ValidateEmail(email)===false) {
+        // var a=phoneno.toString().length;
+        //console.log(a);
+        if (email === "") {
             flag = 0;
-            window.alert("Invalid Email Address");
-        } 
-       else if (name === ""||ValidateName(name)===false||name.toString().length>=20) {
+            window.alert("Email must be added");
+        } else if (name === "") {
             flag = 0;
-            window.alert("Invalid Name");
-        } else if (password === ""||ValidatePassword(password)===false) {
+            window.alert("Name must be added");
+        } else if (password === "") {
             flag = 0;
-            window.alert("Password contains 6-15 characters which contain atleast one Uppercase,lowercase,digit and special chararcter");
-        }
-        else if (phoneno.toString().length != 10||ValidatePhoneno(phoneno)===false) {
+            window.alert("Password must be added");
+        } else if ((phoneno.toString().length != 10)) {
             flag = 0;
-            window.alert("Phone number must be valid");
-        } else if (collegename === ""||ValidateName(collegename)===false||collegename.toString().length>=20) {
+            window.alert("Phoneno must be valid");
+        } else if (collegename === "") {
             flag = 0;
-            window.alert("Invalid College Name");
+            window.alert("College Name must be added");
         }
         if (flag == 1) {
             //console.log("hello buddy");
-            $.ajax("https://node-examportal.herokuapp.com/examiner", {
+            $.ajax("http://localhost:"+localStorage.getItem('server-port')+"/examiner", {
                 type: "POST",
                 dataType: "json",
                 contentType: "application/json",

@@ -1,22 +1,18 @@
-
-function deleteexaminer(id)
-{
-  $("#modelid").attr('id',id)
+function deleteexaminer(id) {
+  $("#modelid").attr('id', id)
 }
-function logout()
-{
-   localStorage.removeItem("token");
-   window.location.replace("../../user/views/login.html");
+function logout() {
+  localStorage.removeItem("token");
+  window.location.replace("../../user/views/login.html");
 }
-function samepage()
-{
+function samepage() {
   window.location.replace("../views/adminShowExaminer.html");
 }
 
-function loadSetupExaminerPage(data){
+function loadSetupExaminerPage(data) {
   $('#performance').empty()
-  $.get('./adminSetupExaminer.html',function(template){
-    var rendered = Mustache.render(template,{data:data})
+  $.get('./adminSetupExaminer.html', function (template) {
+    var rendered = Mustache.render(template, { data: data })
     $('#targetPage').html(rendered)
   })
 }
@@ -29,11 +25,11 @@ $(document).ready(function () {
   //   location.replace("../../index.html")
   // }
   //$.ajax('http://localhost:'+localStorage.getItem('server-port')+'/exam/accessKey', {
-  $.ajax("https://node-examportal.herokuapp.com/examiner", {
+  $.ajax("http://localhost:" + localStorage.getItem('server-port') + "/examiner", {
     type: "GET",
     dataType: 'JSON',
     contentType: "application/json;charset=utf-8",
-    headers:{
+    headers: {
       token: localStorage.getItem('token')
     },
     success: function (recent) {
@@ -41,6 +37,10 @@ $(document).ready(function () {
       // console.log(recent);
     },
     error: function (error) {
+      if (error.responseText == "unauthorized");
+      {
+        window.location.replace('../../un.html')
+      }
       console.log(error)
       console.log("Something went wrong");
     }
@@ -56,7 +56,7 @@ $(document).ready(function () {
   $(document).on('click', '.deleteButton', function () {
     let id = $(this).attr('id')
     console.log(id);
-    $.ajax("https://node-examportal.herokuapp.com/examiner/"+id, {
+    $.ajax("http://localhost:" + localStorage.getItem('server-port') + "/examiner/" + id, {
       type: "DELETE",
       dataType: "json",
       contentType: "application/json",
@@ -66,7 +66,8 @@ $(document).ready(function () {
         }
       ),
       success: function (recent) {
-        window.location.replace("../views/adminShowExaminer.html")
+        display(recent);
+        window.location.replace("adminShowExaminer.html")
       },
       error: function () {
         console.log("Something went wrong");
@@ -77,7 +78,7 @@ $(document).ready(function () {
 
   $(document).on('click', '.viewButton', function () {
     let id = $(this).attr('id')
-    $.ajax("https://node-examportal.herokuapp.com/examiner/id", {
+    $.ajax("http://127.0.0.1:" + localStorage.getItem('server-port') + "/examiner/id", {
       type: "GET",
       dataType: "json",
       contentType: "application/json",
@@ -89,6 +90,7 @@ $(document).ready(function () {
         //loadSetupExaminerPage(recent)
       },
       error: function () {
+
         console.log("Something went wrong");
       }
 

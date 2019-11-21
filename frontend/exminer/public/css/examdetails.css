@@ -3,6 +3,9 @@ body {
     background-color: #ebebeb;
     font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
+.image-size{
+    width: 770px;
+}
 
 .container {
     margin: auto;

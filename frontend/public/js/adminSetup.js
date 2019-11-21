@@ -15,7 +15,7 @@ $(document).ready(function(){
         // console.log(phoneno);
         // console.log(collegename);
        
-      $.ajax("https://node-examportal.herokuapp.com/examiner",{
+      $.ajax("http://127.0.0.1:3000/examiner",{
         type:"POST",
         dataType:"json",
         contentType:"application/json",

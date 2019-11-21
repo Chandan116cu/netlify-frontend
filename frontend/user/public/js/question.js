@@ -6,7 +6,7 @@ function loadQuestions(data, startTime, duration, examName) {
     $('#options').empty()
     const op = document.querySelector('#options')
     if (data[0].questionImage !== null) {
-        imageURL = data[0].questionImage.substring(2, data[0].questionImage.length)
+        imageURL = "../../exminer/" + data[0].questionImage.substring(2, data[0].questionImage.length)
         imageStatus = true
     } else imageStatus = false
 
@@ -28,6 +28,7 @@ function loadPaginaton(questions) {
         const html = Mustache.render(paginationTemplate, { pages: j, id: questions[i]._id })
         op.insertAdjacentHTML("beforeend", html)
     }
+
 }
 
 function setTimeForTest(time, duration) {
@@ -147,6 +148,7 @@ $(document).on('click', '#submitAnswer', function() {
         checkedOption: value,
         qId: questionId
     }
+    console.log(dataToSend)
     $.ajax('http://localhost:'+localStorage.getItem('server-port')+'/question', {
         type: 'POST',
         dataType: 'JSON',
@@ -158,7 +160,6 @@ $(document).on('click', '#submitAnswer', function() {
         data: JSON.stringify(dataToSend),
         success: function(data) {
             $('#' + questionId + ".circle").css('background-color', "green")
-            $('#nextQuestion').trigger('click')
         },
         error: function(error) {
             console.log(error)
@@ -253,7 +254,6 @@ $(document).on('click', '#modalEndTest', function() {
 $(document).on('click', '#resetRadio', function() {
     let questionId = $(this).parent().parent().parent().parent().children().children().children().attr('id')
     $(`input[name=${questionId}]:checked`).prop("checked", false)
-    $('#' + questionId + ".circle").css('background-color',"blue")
     localStorage.removeItem(questionId);
 })
 
@@ -264,7 +264,7 @@ $(document).on('click', "input", function() {
         value.push($(this).val())
     })
     localStorage.setItem(questionId, value)
-    $('#' + questionId + ".circle").css('background-color',"blue")
+    $('#' + questionId + ".circle").css('background-color', "green")
     $('#' + questionId + ".circle").css('color', "white")
 })
 

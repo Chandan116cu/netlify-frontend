@@ -8,7 +8,7 @@ $(document).ready(function() {
 
 function showEdit() {
     $("#showEditDiv").fadeIn("slow");
-    $.ajax("https://node-examportal.herokuapp.com/loggedIn", {
+    $.ajax("http://localhost:"+localStorage.getItem('server-port')+"/loggedIn", {
         type: 'GET',
         dataType: 'JSON',
         headers: {
@@ -28,7 +28,7 @@ function showEdit() {
 }
 
 function showName() {
-    $.ajax("https://node-examportal.herokuapp.com/loggedIn", {
+    $.ajax("http://localhost:"+localStorage.getItem('server-port')+"/loggedIn", {
         type: 'GET',
         dataType: 'JSON',
         headers: {
@@ -62,7 +62,7 @@ function editDetails() {
     var college = document.getElementById('loggedInCollege').value
     var pass = document.getElementById('loggedInPassword').value
 
-    $.ajax("https://node-examportal.herokuapp.com/examiner", {
+    $.ajax("http://localhost:"+localStorage.getItem('server-port')+"/examiner", {
         type: 'PATCH',
         dataType: 'JSON',   
         headers: {

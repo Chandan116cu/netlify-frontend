@@ -58,12 +58,13 @@ function drawChart(data, total) {
 }
 
 function showStudents() {
+    debugger
     const tok = localStorage.getItem('token');
     if (tok == null) {
         location.replace("../../index.html")
     }
 
-    $.ajax("https://node-examportal.herokuapp.com/examiner/exams", {
+    $.ajax("http://localhost:"+localStorage.getItem('server-port')+"/examiner/exams", {
         type: 'GET',
         dataType: 'JSON',
         headers: {
@@ -83,7 +84,12 @@ function showStudents() {
             }
         },
         error: function(error) {
-            console.log(error)
+            debugger    
+            if(error.responseText=="unauthorized");
+            {
+                window.location.replace('../../un.html')
+            }
+            console.log(error.responseText)
         }
     })
 }
@@ -95,7 +101,8 @@ function logout() {
 let flag = 0;
 
 function studentDetails(a) {
-    $.ajax("https://node-examportal.herokuapp.com/examiner/exams/students", {
+    debugger
+    $.ajax("http://localhost:"+localStorage.getItem('server-port')+"/examiner/exams/students", {
         type: 'GET',
         dataType: 'JSON',
         headers: {
@@ -121,6 +128,8 @@ function studentDetails(a) {
             drawChart(data.b, data.c)
         },
         error: function(error) {
+            debugger
+            if(error)
             console.log('error')
         }
     })

@@ -52,6 +52,7 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
+    debugger
     //     $('.loader').hide()
     document.getElementById('btnSave').addEventListener('click', validateForm)
     function validateForm() {
@@ -73,7 +74,7 @@ $(document).ready(function () {
             examDuration: testDuration,
             examStartTime: testDate
         }
-        $.ajax("https://node-examportal.herokuapp.com/exam", {
+        $.ajax("http://localhost:"+localStorage.getItem('server-port')+"/exam", {
             type: "POST",
             dataType: "json",
             headers: {
@@ -95,6 +96,10 @@ $(document).ready(function () {
                 }
             },
             error: function (error) {
+                if(error.responseText=="unauthorized");
+                {
+                    window.location.replace('../../un.html')
+                }
                 console.log("error : " + error)
             }
         })
@@ -169,7 +174,7 @@ $(document).ready(function () {
         formData.append('examCode', tempExamCode);
         formData.append('answerType', answerType);
         formData.append('questionImage', $('input[type=file]')[1].files[0]);
-        $.ajax("https://node-examportal.herokuapp.com/exam/question", {
+        $.ajax("http://localhost:"+localStorage.getItem('server-port')+"/exam/question", {
             type: "POST",
             data: formData,
             dataType: "json",
@@ -218,9 +223,10 @@ function excelUpload(event) {
     event.preventDefault();
     var formData = new FormData();
     formData.append('examCode', tempExamCode)
+    console.log(tempExamCode);
     formData.append('excelFile', $('input[type=file]')[0].files[0])
     console.log(formData.get('excelFile'));
-    $.ajax('https://node-examportal.herokuapp.com/exam/questions/uploadExcel', {
+    $.ajax('http://localhost:45728/exam/questions/uploadExcel', {
         type: 'POST',
         data: formData,
         headers: {
