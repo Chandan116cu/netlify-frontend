@@ -98,7 +98,7 @@ $(document).ready(function() {
         }
         if (flag == 1) {
             //console.log("hello buddy");
-            $.ajax("examiner", {
+            $.ajax("https://node-examportal.herokuapp.com/examiner", {
                 type: "POST",
                 dataType: "json",
                 contentType: "application/json",
