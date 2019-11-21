@@ -13,10 +13,14 @@ $(document).ready(function () {
         },
         success: function (data) {
 
-            changeInputFields(data)
+            return
 
         },
         error: function (error) {
+            if(error.responseText=="unauthorized");
+            {
+                window.location.replace('../../un.html')
+            }
             console.log('not working')
         }
     })
