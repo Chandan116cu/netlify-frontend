@@ -98,7 +98,7 @@ $(document).ready(function() {
         }
         if (flag == 1) {
             //console.log("hello buddy");
-            $.ajax("http://localhost:"+localStorage.getItem('server-port')+"/examiner", {
+            $.ajax("examiner", {
                 type: "POST",
                 dataType: "json",
                 contentType: "application/json",
