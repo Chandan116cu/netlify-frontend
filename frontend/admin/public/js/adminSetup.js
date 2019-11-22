@@ -89,7 +89,7 @@ $(document).ready(function() {
             if(error.responseText=="unauthorized");
             {console.log(error)
              
-             //   window.location.replace('../../un.html')
+                window.location.replace('../../un.html')
             }
         }
     })
