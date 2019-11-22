@@ -4,7 +4,6 @@ if (tok == null) {
 }
 $.ajax("https://node-examportal.herokuapp.com/checkadmin", {
     type: 'GET',
-    dataType: 'JSON',
     headers: {
         "token": localStorage.getItem('token'),
         'Authorization': 'Bearer '+localStorage.getItem('token')
