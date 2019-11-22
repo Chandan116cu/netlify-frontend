@@ -41,6 +41,7 @@ $(document).ready(function () {
       // console.log(recent);
     },
     error: function (error) {
+      
       console.log(error)
       console.log("Something went wrong");
     }
