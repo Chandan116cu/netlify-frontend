@@ -6,7 +6,7 @@ function loadQuestions(data, startTime, duration, examName) {
     $('#options').empty()
     const op = document.querySelector('#options')
     if (data[0].questionImage !== null) {
-        imageURL = data[0].questionImage.substring(2, data[0].questionImage.length)
+        imageURL = "../../exminer/" + data[0].questionImage.substring(2, data[0].questionImage.length)
         imageStatus = true
     } else imageStatus = false
 
@@ -28,6 +28,7 @@ function loadPaginaton(questions) {
         const html = Mustache.render(paginationTemplate, { pages: j, id: questions[i]._id })
         op.insertAdjacentHTML("beforeend", html)
     }
+
 }
 
 function setTimeForTest(time, duration) {
@@ -103,7 +104,7 @@ $(document).ready(function() {
     $('#nextQuestion').attr('value', 0)
     $('#previousQuestion').attr({ 'value': 0, 'disabled': true })
     
-    $.ajax('http://localhost:'+localStorage.getItem('server-port')+'/question', {
+    $.ajax("https://node-examportal.herokuapp.com/question", {
         type: 'GET',
         dataType: 'JSON',
         contentType: "application/json;charset=utf-8",
@@ -147,7 +148,8 @@ $(document).on('click', '#submitAnswer', function() {
         checkedOption: value,
         qId: questionId
     }
-    $.ajax('http://localhost:'+localStorage.getItem('server-port')+'/question', {
+    console.log(dataToSend)
+    $.ajax("https://node-examportal.herokuapp.com/question", {
         type: 'POST',
         dataType: 'JSON',
         contentType: "application/json;charset=utf-8",
@@ -158,7 +160,6 @@ $(document).on('click', '#submitAnswer', function() {
         data: JSON.stringify(dataToSend),
         success: function(data) {
             $('#' + questionId + ".circle").css('background-color', "green")
-            $('#nextQuestion').trigger('click')
         },
         error: function(error) {
             console.log(error)
@@ -172,7 +173,7 @@ $(document).on('click', '#nextQuestion', function() {
     if ($('#nextQuestion').attr('value') != 0) {
         $('#previousQuestion').removeAttr("disabled");
     }
-    $.ajax('http://localhost:'+localStorage.getItem('server-port')+'/question', {
+    $.ajax("https://node-examportal.herokuapp.com/question", {
         type: 'GET',
         dataType: 'JSON',
         contentType: "application/json;charset=utf-8",
@@ -203,7 +204,7 @@ $(document).on('click', '#previousQuestion', function() {
     if (pageNumber == 0) {
         $('#previousQuestion').attr({ 'value': 0, 'disabled': true })
     }
-    $.ajax('http://localhost:'+localStorage.getItem('server-port')+'/question', {
+    $.ajax("https://node-examportal.herokuapp.com/question", {
         type: 'GET',
         dataType: 'JSON',
         headers: {
@@ -230,7 +231,7 @@ $(document).on('click', '#modalEndTest', function() {
     dataToSend = {
         code: localStorage.getItem("examCode")
     }
-    $.ajax('http://localhost:'+localStorage.getItem('server-port')+'/exam/endTest', {
+    $.ajax("https://node-examportal.herokuapp.com/exam/endTest", {
         type: 'POST',
         dataType: 'JSON',
         contentType: "application/json;charset=utf-8",
@@ -253,7 +254,6 @@ $(document).on('click', '#modalEndTest', function() {
 $(document).on('click', '#resetRadio', function() {
     let questionId = $(this).parent().parent().parent().parent().children().children().children().attr('id')
     $(`input[name=${questionId}]:checked`).prop("checked", false)
-    $('#' + questionId + ".circle").css('background-color',"blue")
     localStorage.removeItem(questionId);
 })
 
@@ -264,13 +264,13 @@ $(document).on('click', "input", function() {
         value.push($(this).val())
     })
     localStorage.setItem(questionId, value)
-    $('#' + questionId + ".circle").css('background-color',"blue")
+    $('#' + questionId + ".circle").css('background-color', "green")
     $('#' + questionId + ".circle").css('color', "white")
 })
 
 $(document).on('click', '.circle', function() {
     let upcomingPage = parseInt($(this).children().html()) - 1
-    $.ajax('http://localhost:'+localStorage.getItem('server-port')+'/question', {
+    $.ajax("https://node-examportal.herokuapp.com/question", {
         type: 'GET',
         dataType: 'JSON',
         headers: {
