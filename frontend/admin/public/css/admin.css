@@ -220,6 +220,9 @@ i {
 
 .show-examiner-table {
     margin-top: 8%;
+}
+#main{
+    display: none;
     margin-left: 18%;
 }
 @media (max-width: 765px) {

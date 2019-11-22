@@ -219,6 +219,9 @@ i {
 .flex-1 button {
     width: 80px;
 }
+#main{
+    display: none;
+}
 #loggedInEmail,#loggedInPassword{
     color: rgba(0, 0, 0, 0.5);
 }
