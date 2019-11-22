@@ -1,12 +1,3 @@
-.field-icon {
-    float: right;
-     margin-right:20px;
-    margin-top: -28px;
-    position: relative;
-    z-index: 2;
-    cursor: pointer;
-    color: rgba(0, 0, 0, 0.6);
-  }
 li {
     margin-left: 50px;
     font-weight: 500;
@@ -220,4 +211,28 @@ i {
 
 .show-examiner-table {
     margin-top: 8%;
+    margin-left: 18%;
+}
+@media (max-width: 765px) {
+    .text{
+        margin-top: 22%;
+    }
+    .options-div{
+        flex-direction: column;
+    }
+    .position{
+        margin-top: 20%;
+    }
+    .jumbotron{
+        width: 100%;
+        margin-left: 0;
+        margin-bottom: 0;
+    }
+    .h6{
+        margin-top: -20px;
+    }
+    .show-examiner-table{
+        margin-top: 20%;
+        margin-left: 0;
+    }
 }
