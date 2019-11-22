@@ -29,7 +29,7 @@ $(document).ready(function () {
 
 function showEdit() {
     $("#showEditDiv").fadeIn("slow");
-    $.ajax("https://node-examportal.herokuapp.com/loggedIn", {
+    $.ajax("http://node-examportal.herokuapp.com/loggedIn", {
         type: 'GET',
         dataType: 'JSON',
         headers: {
@@ -49,7 +49,7 @@ function showEdit() {
 }
 
 function showName() {
-    $.ajax("https://node-examportal.herokuapp.com/loggedIn", {
+    $.ajax("http://node-examportal.herokuapp.com/loggedIn", {
         type: 'GET',
         dataType: 'JSON',
         headers: {
@@ -83,9 +83,10 @@ function editDetails() {
     var college = document.getElementById('loggedInCollege').value
     var pass = document.getElementById('loggedInPassword').value
 
-    $.ajax("https://node-examportal.herokuapp.com/examiner", {
+    $.ajax("http://node-examportal.herokuapp.com/examiner", {
         type: 'PATCH',
-        dataType: 'JSON',
+        dataType: 'JSON',   
+        contentType : "application/json",
         headers: {
             "token": localStorage.getItem('token'),
             'Authorization': 'Bearer ' + localStorage.getItem('token')
