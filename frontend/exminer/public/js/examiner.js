@@ -5,7 +5,6 @@ $(document).ready(function () {
     }
     $.ajax("https://node-examportal.herokuapp.com/checkexaminer", {
         type: 'GET',
-        dataType: 'JSON',
         headers: {
             "token": localStorage.getItem('token'),
             'Authorization': 'Bearer ' + localStorage.getItem('token')
