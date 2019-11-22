@@ -124,7 +124,10 @@ $(document).ready(function() {
                 type: "POST",
                 dataType: "json",
                 contentType: "application/json",
-
+                headers:JSON.stringify({
+                    "token" : localStorage.getItem('token'),
+                    "Authorization" : "Bearer "+ localStorage.getItem('token')  
+                }),
                 data: JSON.stringify({
                     "email": email,
                     "name": name,
