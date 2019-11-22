@@ -220,4 +220,28 @@ i {
 
 .show-examiner-table {
     margin-top: 8%;
+    margin-left: 18%;
+}
+@media (max-width: 765px) {
+    .text{
+        margin-top: 22%;
+    }
+    .options-div{
+        flex-direction: column;
+    }
+    .position{
+        margin-top: 20%;
+    }
+    .jumbotron{
+        width: 100%;
+        margin-left: 0;
+        margin-bottom: 0;
+    }
+    .h6{
+        margin-top: -20px;
+    }
+    .show-examiner-table{
+        margin-top: 20%;
+        margin-left: 0;
+    }
 }
