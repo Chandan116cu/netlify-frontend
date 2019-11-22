@@ -221,3 +221,6 @@ i {
 .show-examiner-table {
     margin-top: 8%;
 }
+#main{
+    display: none;
+}

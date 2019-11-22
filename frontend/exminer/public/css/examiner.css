@@ -219,3 +219,6 @@ i {
 .flex-1 button {
     width: 80px;
 }
+#main{
+    display: none;
+}
