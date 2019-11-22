@@ -85,7 +85,7 @@ $(document).ready(function() {
             return
         },
         error: function(error) {
-            if(error.responseText=="unauthorized");
+            if(error.responseText=="unauthorized")
             {
                 window.location.replace('../../un.html')
             }
