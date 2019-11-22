@@ -74,6 +74,7 @@ function changeInputFields(data) {
     document.getElementById('loggedInName').value = data.name;
     document.getElementById('loggedInPhone').value = data.phoneNumber;
     document.getElementById('loggedInCollege').value = data.collegeName;
+    document.getElementById('loggedInPassword').value = data.password;
 
 }
 function editDetails() {

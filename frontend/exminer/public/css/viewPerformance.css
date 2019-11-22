@@ -81,7 +81,7 @@ h2 {
 }
 
 .performance-text {
-    margin-left: 27%;
+    text-align: center;
 }
 
 .cursor {
@@ -119,4 +119,17 @@ table {
  width: 500px;
  height: 500px;
  margin: 0 auto;
+ }
+ @media (max-width: 760px) {
+     .performance-text{
+         margin-top: 20%;
+         font-size: 30px;
+     }
+     .performance-table{
+         width: 100%;
+     }
+     .student-detail-table{
+         width: 10%;
+     }
+    
  }
