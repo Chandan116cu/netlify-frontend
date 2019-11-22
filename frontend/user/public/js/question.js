@@ -264,7 +264,7 @@ $(document).on('click', "input", function() {
         value.push($(this).val())
     })
     localStorage.setItem(questionId, value)
-    $('#' + questionId + ".circle").css('background-color', "green")
+    $('#' + questionId + ".circle").css('background-color', "#54DACF")
     $('#' + questionId + ".circle").css('color', "white")
 })
 
