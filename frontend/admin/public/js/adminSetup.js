@@ -119,11 +119,18 @@ $(document).ready(function() {
             window.alert("Invalid College Name");
         }
         if (flag == 1) {
+            debugger
             //console.log("hello buddy");
+
             $.ajax("https://node-examportal.herokuapp.com/examiner", {
                 type: "POST",
                 dataType: "json",
                 contentType: "application/json",
+                headers: {
+                    "token": localStorage.getItem('token'),
+                    'Authorization': 'Bearer '+localStorage.getItem('token')
+        
+                },
 
                 data: JSON.stringify({
                     "email": email,

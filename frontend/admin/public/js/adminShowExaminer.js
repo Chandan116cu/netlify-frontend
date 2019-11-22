@@ -64,6 +64,9 @@ $(document).ready(function () {
       type: "DELETE",
       dataType: "json",
       contentType: "application/json",
+      headers:{
+        token: localStorage.getItem('token')
+      },
       data: JSON.stringify(
         {
           "_id": id
