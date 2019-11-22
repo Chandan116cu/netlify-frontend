@@ -90,9 +90,33 @@ h1 {
 label {
     font-weight: 400;
 }
+@media(max-width:769px){
+    .flex-1{
+        width: 100%;
+        margin: 0%;
+    }
+    .container {
+        margin: 0%;
+    }
+    .flex{
+        width: 100%;
+    }
+
+}
+
 
 .mod {
+    display: none;
     position: absolute;
-    top: 35%;
-    left: 47%;
+    top: 30%;
+    left: 45%;
+}
+.cg{
+    animation: rotate 1.2s infinite;
+}
+@keyframes rotate{
+
+ 0%   {transform: rotateY(0deg);}
+ 50%{transform: rotateY(180deg);}
+ 100%{transform: rotateY(360deg);}
 }
