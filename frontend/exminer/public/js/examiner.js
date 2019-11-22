@@ -12,7 +12,7 @@ $(document).ready(function () {
 
         },
         success: function (data) {
-
+            document.getElementById('main').style.display='block';
             return
 
         },
