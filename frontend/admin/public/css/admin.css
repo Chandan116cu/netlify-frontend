@@ -24,7 +24,7 @@ a:hover {
 }
 
 .nav-link:hover {
-    color: blue;
+    color:rgba(255, 255, 255, 0.5);
 }
 
 #marginfromtop {
