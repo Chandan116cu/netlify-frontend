@@ -1,8 +1,29 @@
-$(document).ready(function() {
+$(document).ready(function () {
     const tok = localStorage.getItem('token');
     if (tok == null) {
         location.replace("../../index.html")
     }
+    $.ajax("https://node-examportal.herokuapp.com/checkexaminer", {
+        type: 'GET',
+        dataType: 'JSON',
+        headers: {
+            "token": localStorage.getItem('token'),
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+
+        },
+        success: function (data) {
+
+            return
+
+        },
+        error: function (error) {
+            if(error.responseText=="unauthorized");
+            {
+                window.location.replace('../../un.html')
+            }
+            console.log('not working')
+        }
+    })
 
 })
 
@@ -13,15 +34,15 @@ function showEdit() {
         dataType: 'JSON',
         headers: {
             "token": localStorage.getItem('token'),
-            'Authorization': 'Bearer '+localStorage.getItem('token')
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
 
         },
-        success: function(data) {
+        success: function (data) {
 
             changeInputFields(data)
 
         },
-        error: function(error) {
+        error: function (error) {
             console.log('not working')
         }
     })
@@ -33,15 +54,15 @@ function showName() {
         dataType: 'JSON',
         headers: {
             "token": localStorage.getItem('token'),
-            'Authorization': 'Bearer '+localStorage.getItem('token')
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
 
         },
-        success: function(data) {
+        success: function (data) {
             console.log(data)
             document.getElementById('span').innerHTML = 'Welcome ' + data.name + '! &nbsp; &nbsp; '
             localStorage.setItem("loggedInName", data.name)
         },
-        error: function(error) {
+        error: function (error) {
             console.log('not working')
         }
     })
@@ -68,7 +89,7 @@ function editDetails() {
         contentType : "application/json",
         headers: {
             "token": localStorage.getItem('token'),
-             'Authorization': 'Bearer '+localStorage.getItem('token')
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
 
         },
         data: JSON.stringify({
@@ -78,15 +99,15 @@ function editDetails() {
             "collegeName": college,
             "password": pass
         }),
-        
-        success: function(data) {
+
+        success: function (data) {
             window.alert('User Details Updated !')
             hideEditDetails()
             showName()
 
 
         },
-        error: function(error) {
+        error: function (error) {
             // console.log('not updated')
             window.alert('Not Updated')
         }
