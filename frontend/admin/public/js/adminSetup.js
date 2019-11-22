@@ -85,10 +85,8 @@ $(document).ready(function() {
             return
         },
         error: function(error) {
-          debugger
-            if(error.responseText==="unauthorized");
-            {console.log(error)
-             
+            if(error.responseText=="unauthorized")
+            {
                 window.location.replace('../../un.html')
             }
         }
