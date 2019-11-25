@@ -223,8 +223,8 @@ i {
 }
 #main{
     display: none;
-    margin-left: 18%;
 }
+
 @media (max-width: 765px) {
     .text{
         margin-top: 22%;
@@ -252,5 +252,6 @@ i {
     }
     .performance{
         margin-top: 20%;
+        margin-left: 18%;
     }
 }
