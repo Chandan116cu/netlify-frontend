@@ -123,3 +123,17 @@ span{
    font-family: Roboto,"Helvetica Neue",sans-serif;
    color: rgb(255, 255, 255,0.9);
 }
+@media(max-width:360px){
+   .footer{
+      display: block;
+   }
+   .g1{
+      width: 100%;
+   }
+   .g2{
+      width: 100%;
+   }
+   body{
+      overflow: auto;
+   }
+}
