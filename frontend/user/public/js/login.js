@@ -15,7 +15,7 @@ $(document).on('click', '#loginButton', function() {
                 'password': password
             }),
             success: function(data) {
-                localStorage.setItem('token', data.token)
+                 localStorage.setItem('token', data.token)
                 if (data.accountType == "Examiner")
                     $(location).attr('href', '../../exminer/views/examiner.html')
                 else if (data.accountType == "Student")
@@ -25,12 +25,23 @@ $(document).on('click', '#loginButton', function() {
                 }
             },
             error: function(data) {
+                $('.main').animate({ opacity: 1 })
+                $('.mod').fadeOut()
                 $('.spinner').hide()
-                console.log(data)
-                window.alert(data.responseJSON.message)
-                location.reload();
+                $('#alert-box').show();
+                $("#okButton").on("click", (event) => {
+                    $(location).attr('href', './login.html')
+                })
+                
             }
 
         })
     })
+    var input = document.getElementById("inputPassword");
+    input.addEventListener("keyup", function(event) {
+    if (event.keyCode === 13) {
+    event.preventDefault();
+    document.getElementById("loginButton").click();
+  }
+});
     // })

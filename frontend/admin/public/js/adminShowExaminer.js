@@ -41,6 +41,10 @@ $(document).ready(function () {
       // console.log(recent);
     },
     error: function (error) {
+      if (error.responseText == "unauthorized");
+      {
+        window.location.replace('../../un.html')
+      }
       console.log(error)
       console.log("Something went wrong");
     }
@@ -60,6 +64,9 @@ $(document).ready(function () {
       type: "DELETE",
       dataType: "json",
       contentType: "application/json",
+      headers:{
+        token: localStorage.getItem('token')
+      },
       data: JSON.stringify(
         {
           "_id": id

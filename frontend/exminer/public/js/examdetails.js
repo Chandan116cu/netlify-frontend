@@ -52,6 +52,23 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
+    $.ajax('https://node-examportal.herokuapp.com/exam/questions/uploadExcel', {
+        type: 'GET',
+        headers: {
+            token: localStorage.getItem('token'),
+            Authorization: "Bearer "+localStorage.getItem('token')
+        },
+        success: function (data) {
+            document.getElementById('main').style.display='block';
+        },
+        error: function (error) {
+            if(error.responseText=="unauthorized")
+            {
+                window.location.replace('../../un.html')
+            }
+            console.log(error + " " + error)
+        }
+    })
     //     $('.loader').hide()
     document.getElementById('btnSave').addEventListener('click', validateForm)
     function validateForm() {
@@ -95,6 +112,7 @@ $(document).ready(function () {
                 }
             },
             error: function (error) {
+                
                 console.log("error : " + error)
             }
         })

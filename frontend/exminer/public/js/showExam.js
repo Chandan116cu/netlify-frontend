@@ -111,4 +111,24 @@ $(document).ready(() => {
             
             }
         })
+        $.ajax("https://node-examportal.herokuapp.com/exam", {
+            type: 'GET',
+            //contentType: "application/json",
+            headers: {
+                token: localStorage.getItem('token'),
+                Authorization: "Bearer "+localStorage.getItem('token')
+            },
+            success: function(data) {
+                return
+            },
+            error: function(error) {
+                  if(error.responseText=="unauthorized")
+                {
+                    console.log(error.responseText)
+                   // window.location.replace('../../un.html')
+                }
+            
+            }
+
+        })
     })
