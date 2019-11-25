@@ -100,7 +100,7 @@ $(document).ready(function () {
             $('#view_Invalid2').show()
             return
         }
-        if ($("#Name").val().trim().length == 0) {
+        if ($("#lastName").val().trim().length == 0) {
             $('#view_Invalid1').show()
             return
         }
@@ -150,6 +150,7 @@ $(document).ready(function () {
             error: function (error) {
                 $('.spinner').hide()
                 alert("User already Exists")
+                $(location).attr('href', './signUp.html')
             }
         })
     })
