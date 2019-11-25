@@ -1,3 +1,28 @@
+const tok = localStorage.getItem('token');
+if (tok == null) {
+    location.replace("../../index.html")
+}
+$.ajax("https://node-examportal.herokuapp.com/checkadmin", {
+    type: 'GET',
+    headers: {
+        "token": localStorage.getItem('token'),
+        'Authorization': 'Bearer '+localStorage.getItem('token')
+
+    },
+    success: function(data) {
+        document.getElementById('main').style.display='block';
+        return
+    },
+    error: function(error) {
+        if(error.responseText=="unauthorized")
+        {
+            window.location.replace('../../un.html')
+        }
+    }
+})
+
+
+
 function showpasswordtext()
 {
   var x = document.getElementById("password");
@@ -97,11 +122,18 @@ $(document).ready(function() {
             window.alert("Invalid College Name");
         }
         if (flag == 1) {
+            debugger
             //console.log("hello buddy");
+
             $.ajax("https://node-examportal.herokuapp.com/examiner", {
                 type: "POST",
                 dataType: "json",
                 contentType: "application/json",
+                headers: {
+                    "token": localStorage.getItem('token'),
+                    'Authorization': 'Bearer '+localStorage.getItem('token')
+        
+                },
 
                 data: JSON.stringify({
                     "email": email,

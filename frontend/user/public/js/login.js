@@ -25,12 +25,19 @@ $(document).on('click', '#loginButton', function() {
                 }
             },
             error: function(data) {
+                $('.main').animate({ opacity: 1 })
+                $('.mod').fadeOut()
                 $('.spinner').hide()
-                console.log(data)
-                window.alert(data.responseJSON.message)
-                location.reload();
+                $('#alert-box').show();
             }
 
         })
     })
+    var input = document.getElementById("inputPassword");
+    input.addEventListener("keyup", function(event) {
+    if (event.keyCode === 13) {
+    event.preventDefault();
+    document.getElementById("loginButton").click();
+  }
+});
     // })

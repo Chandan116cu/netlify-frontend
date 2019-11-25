@@ -108,6 +108,10 @@ $(document).ready(() => {
                     alert('No Exam created')
                     $(location).attr('href', '../views/examiner.html')
                 }
+                if(error.responseText=="unauthorized")
+                {
+                    window.location.replace('../../un.html')
+                }
             
             }
         })

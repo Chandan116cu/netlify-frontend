@@ -1,7 +1,7 @@
 // this page will create dom to display details of students
 function drawChart(data, total) {
     let ctx = document.getElementById('myChart').getContext('2d');
-    let labels = ['< 40', '40-60', '60-80', '> 80'];
+    let labels = ['< 40% ', '40%-60% ', '60%-80% ', '> 80% '];
     let colorHex = ['#FB3640', '#EFCA08', '#43AA8B', '#253D5B'];
     let m1 = 0,
         m2 = 0,
@@ -106,19 +106,24 @@ function studentDetails(a) {
             console.log(data)
             $('#tcan').empty()
             let tr = document.createElement('tr')
-            tr.innerHTML = "<th>" + " Student Name " + "</th>" + "<th>" + " Exam Code " + "</th>" + "<th>" + "Total Score" + "</th>" + "<th>" + "Question Attempted" + "</th>" + "<th>" + "Maximum Marks" + "</th>" + "<th>" + "Percentage %" + "</th>";
+            tr.innerHTML = "<th>" + " Student Email " + "</th>"+ "<th>" + " Student Name " + "</th>" + "<th>" + " Exam Code " + "</th>" + "<th>" + "Total Score" + "</th>" + "<th>" + "Maximum Marks" + "</th>" + "<th>" + "Percentage %" + "</th>";
             $("#tcan").append(tr)
             let i = 0;
             while (i < data.b.length) {
 
                 let tr = document.createElement('tr')
-                tr.innerHTML = "<td>" + data.a[i].name + "</td>" + "<td>" + data.b[i].testCode + "</td>" + "<td>" + data.b[i].totalScore + "</td>" + "<td>" + data.b[i].answers.length + "</td>" + "<td>" + data.c + "</td>" + "<td>" + (data.b[i].totalScore / data.c) * 100 + "%" + "</td>";
+                tr.innerHTML = "<td>"+data.a[i].email+"</td>"+"<td>" + data.a[i].name + "</td>" + "<td>" + data.b[i].testCode + "</td>" + "<td>" + data.b[i].totalScore + "</td>" + "<td>" + data.c + "</td>" + "<td>" + (data.b[i].totalScore / data.c) * 100 + "%" + "</td>";
                 $("#tcan").fadeIn()
                 $("#tcan").append(tr)
                 flag = 1;
                 i++;
             }
+            if(data.b!=''){
             drawChart(data.b, data.c)
+            $('#myChart').show()
+            }
+            else
+            $('#myChart').hide()
         },
         error: function(error) {
             console.log('error')
