@@ -89,9 +89,7 @@ h5 {
     cursor: pointer;
 }
 
-button {
-    width: 100%;
-}
+
 /* 
 a:hover {
     color: blue;
@@ -300,22 +298,49 @@ option {
 }
 
 @media (max-width: 576px) {
-    button {
-      width: 50%;
+    .btn1 {
+      width: 90%;
+    }
+    .logo{
+        width: 42% !important;
+    }
+    #question-Index{
+        margin-top: 70px;
+        width: 30%;
+        position: fixed;
+    }
+    .question-div{
+        width: 70%
     }
   }
 
   @media (max-width: 768px) {
     .content{
-        font-size: 25px;
+        font-size: 15px;
         /* height: 40px; */
     }
-    button {
-        font:30px;
-        width: 50%;
-        height: 80px;
+
+      .btn1{
+        width: 90%;
       }
+      #question-Index{
+        margin-top: 70px;
+        width: 30%;
+        position: fixed;
+    }
+    .question-div{
+        width: 70%
+    }
   }
 .fixed{
     display: grid;
+}
+#question-Index{
+    position: fixed;
+    
+}
+
+.question-div img{
+    height: 200px !important;
+    width: 50% !important;
 }
