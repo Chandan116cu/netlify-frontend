@@ -139,7 +139,7 @@ $(document).ready(function () {
             data: JSON.stringify({
                 "name": name,
                 "email": Email,
-                "phoneNumber": PhoneNumber,
+                "phoneNumber": "+91" +PhoneNumber,
                 "password": Password,
                 "accountType": accountType
             }),
