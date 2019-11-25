@@ -71,7 +71,9 @@ a:hover {
 .form-test label {
     font-weight: 500;
 }
-
+.main{
+    display: none;
+}
 .pull-right {
     margin-left: 10px;
 }
