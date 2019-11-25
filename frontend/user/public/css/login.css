@@ -43,24 +43,18 @@ a:hover {
     background-color: white;
     margin: auto;
     box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.2);
-    width: 30%;
+    width: 40%;
 }
-
 .flex-1 {
     flex: 2;
     margin-top: 30px;
+    width: 30%;
 }
 
 .btn,
 #signUpSubmit {
     font-weight: 100;
 }
-
-
-/* .flex-2{
-     border-left: 4px solid black;
-  } */
-
 .display-image {
     width: 110.5%;
     height: 100%;
@@ -69,12 +63,6 @@ a:hover {
 body {
     background-color: #ebebeb;
 }
-
-
-/* *{
-      margin:0px;
-  } */
-
 form :nth-child(1) {
     color: rgba(0, 0, 0, 0.7);
 }
@@ -90,21 +78,6 @@ h1 {
 label {
     font-weight: 400;
 }
-@media(max-width:769px){
-    .flex-1{
-        width: 100%;
-        margin: 0%;
-    }
-    .container {
-        margin: 0%;
-    }
-    .flex{
-        width: 100%;
-    }
-
-}
-
-
 .mod {
     display: none;
     position: absolute;
@@ -125,5 +98,42 @@ label {
     display: none;
 }
 .container{
-    margin-top: -30px;;
+    margin-top: 30px;
+}
+@media(max-width:768px){
+    .flex-1{
+        width: 40%;
+        margin-top: 25px;
+    }
+    .flex{
+        width: 40%;
+    }
+    .modal-content {
+        width: 90%;
+    }
+
+}
+@media(max-width:500px){
+    .flex-1{
+        width: 40%;
+        margin-top: 20px;
+    }
+    .flex{
+        width: 40%;
+    }
+    .modal-content {
+        width: 90%;
+    }
+}
+@media(max-width:200px){
+    .flex-1{
+        width: 40%;
+        margin-top: 15px;
+    }
+    .flex{
+        width: 40%;
+    }
+    .modal-content {
+        width: 100%;
+    }
 }
