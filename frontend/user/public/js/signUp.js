@@ -149,7 +149,7 @@ $(document).ready(function () {
             },
             error: function (error) {
                 $('.spinner').hide()
-                alert("User already Existed")
+                alert("User already Exists")
             }
         })
     })
