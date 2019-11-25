@@ -29,6 +29,10 @@ $(document).on('click', '#loginButton', function() {
                 $('.mod').fadeOut()
                 $('.spinner').hide()
                 $('#alert-box').show();
+                $("#okButton").on("click", (event) => {
+                    $(location).attr('href', './login.html')
+                })
+                
             }
 
         })
