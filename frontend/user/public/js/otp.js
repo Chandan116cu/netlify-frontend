@@ -5,7 +5,7 @@ $(document).ready(function () {
             return alert("Please enter OTP to continue")
         }
         
-        $.ajax("https://node-examportal.herokuapp.com/verification", {
+        $.ajax("https://node-examportal.herokuapp.com/login/otp/verification", {
             type: "POST",
             dataType: "json",
             contentType: "application/json;charset=utf-8",
