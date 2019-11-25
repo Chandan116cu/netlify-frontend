@@ -1,11 +1,11 @@
 $(document).ready(function () {
-    $(".form-control").click(function verifyOTP() {
+    $("#verify").click(function verifyOTP() {
         var OTP = $(".form-control").val();
         if(OTP==""){
             return alert("Please enter OTP to continue")
         }
         
-        $.ajax("http://localhost:3000/login/OTP", {
+        $.ajax("https://node-examportal.herokuapp.com/verification", {
             type: "POST",
             dataType: "json",
             contentType: "application/json;charset=utf-8",
@@ -16,15 +16,16 @@ $(document).ready(function () {
             },
             data: JSON.stringify({
                 "otp":OTP,
-                "token" : localStorage.getItem('token')
             }),
             success: function (data) {
-                if(data.code=="200"){
+                if(data.code=="200"&&data.message=="verified successfully"){
+                    localStorage.removeItem('token');
+                    localStorage.setItem('token',data.token);
                     alert("Your Phone number has been verified")
-                    localStorage.setItem('token', data.token)
                     $(location).attr('href', '../views/accessKey.html')
                 }else if(data.code=="400"){
                     alert("Your OTP does not matched. Try again")
+                    location.reload();
                 }
                 
             },
