@@ -49,7 +49,7 @@ $(document).ready(function () {
             return alert("Confirm Password does not match")
         }
         name = firstName + " " + lastName;
-        $.ajax("https://node-examportal.herokuapp.com/signUp", {
+        $.ajax("http://localhost:3000/signUp", {
             type: "POST",
             dataType: "json",
             contentType: "application/json;charset=utf-8",
@@ -61,7 +61,7 @@ $(document).ready(function () {
             data: JSON.stringify({
                 "name": name,
                 "email": Email,
-                "phoneNumber": PhoneNumber,
+                "phoneNumber": '+91'+PhoneNumber,
                 "password": Password,
                 "accountType": accountType
             }),
