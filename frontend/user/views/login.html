@@ -18,7 +18,7 @@
     <div class="main">
         <nav class="navbar navbar-expand-lg fixed-top" style="background-color: black;">
             <img src="../public/assets/cybergrouplogo.png" class="logo" onclick="location.href='examPortal.html'">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" data-target="#navbarSupportedContent">
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -55,6 +55,12 @@
 
                     <button class="btn btn-success my-2 my-sm-0" style="color: white;" id="loginButton" type="button">Login</button>
                 </form>
+                <div class="container" style="width: 345px;">
+                    <div class="alert alert-danger alert-dismissible fade show" id="alert-box">
+                        <strong>Alert!</strong> Invalid Credentials.
+                        <button type="button" class="close" data-dismiss="alert">OK</button>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -69,6 +75,7 @@
             </div>
         </div>    
     <script src="../public/js/login.js"></script>
+    <script src="../../user/public/js/index.js"></script>
 </body>
 
 </html>
