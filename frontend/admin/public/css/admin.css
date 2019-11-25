@@ -24,7 +24,7 @@ a:hover {
 }
 
 .nav-link:hover {
-    color: blue;
+    color:rgba(255, 255, 255, 0.5);
 }
 
 #marginfromtop {
@@ -220,8 +220,11 @@ i {
 
 .show-examiner-table {
     margin-top: 8%;
-    margin-left: 18%;
 }
+#main{
+    display: none;
+}
+
 @media (max-width: 765px) {
     .text{
         margin-top: 22%;
@@ -249,5 +252,6 @@ i {
     }
     .performance{
         margin-top: 20%;
+        margin-left: 18%;
     }
 }
