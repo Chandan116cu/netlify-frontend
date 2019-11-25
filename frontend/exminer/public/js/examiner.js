@@ -11,8 +11,9 @@ $(document).ready(function () {
 
         },
         success: function (data) {
+            console.log(data)
             document.getElementById('main').style.display='block';
-            return
+            
 
         },
         error: function (error) {
