@@ -91,24 +91,16 @@ $(document).ready(function () {
         if ($("#firstName").val().length == 0) {
             $('#view_Invalid1').show()
             return
-
         }
         if ($("#firstName").val().trim().length == 0) {
             $('#view_Invalid1').show()
             return
-
         }
-        $("#firstName").on('keyup',function(e){
-            if (e.keyCode == 32) {
-            //   e.preventDefault();
-            return false;
-            }
-        });
         if ($("#lastName").val().length == 0) {
             $('#view_Invalid2').show()
             return
         }
-        if ($("#lastName").val().trim().length == 0) {
+        if ($("#Name").val().trim().length == 0) {
             $('#view_Invalid1').show()
             return
         }
@@ -147,7 +139,7 @@ $(document).ready(function () {
             data: JSON.stringify({
                 "name": name,
                 "email": Email,
-                "phoneNumber": '+91'+PhoneNumber,
+                "phoneNumber": PhoneNumber,
                 "password": Password,
                 "accountType": accountType
             }),
