@@ -155,10 +155,7 @@ $(document).ready(function(){
                 alert("This exam has no Questions")
                 $(location).attr('href','../views/exam.html')
             }
-            if (error.responseText == "unauthorized");
-            {
-              window.location.replace('../../un.html')
-            }
+
         }
     })
 })
