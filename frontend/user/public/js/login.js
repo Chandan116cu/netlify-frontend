@@ -25,10 +25,10 @@ $(document).on('click', '#loginButton', function() {
                 }
             },
             error: function(data) {
+                $('.main').animate({ opacity: 1 })
+                $('.mod').fadeOut()
                 $('.spinner').hide()
-                console.log(data)
-                window.alert(data.responseJSON.message)
-                location.reload();
+                $('#alert-box').show();
             }
 
         })
