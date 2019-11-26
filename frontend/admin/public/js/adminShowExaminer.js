@@ -24,11 +24,11 @@ function loadSetupExaminerPage(data){
 
 
 $(document).ready(function () {
-  // const tok =localStorage.getItem('token');
-  // if(tok == null)
-  // {
-  //   location.replace("../../index.html")
-  // }
+  const tok =localStorage.getItem('token');
+  if(tok == null)
+  {
+    location.replace("../../index.html")
+  }
   //$.ajax('http://localhost:'+localStorage.getItem('server-port')+'/exam/accessKey', {
   $.ajax("https://node-examportal.herokuapp.com/examiner", {
     type: "GET",
