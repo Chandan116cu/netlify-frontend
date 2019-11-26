@@ -26,11 +26,7 @@ $(document).ready(function(){
     })
 })
 $(document).on('click', '#checkAccessKey', function() {
-    const tok = localStorage.getItem('token');
 
-    if (tok == null) {
-        location.replace("./login.html")
-    }
     $.ajax("https://node-examportal.herokuapp.com/exam/accessKey", {
         type: 'POST',
         dataType: 'JSON',
