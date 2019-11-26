@@ -143,9 +143,17 @@ $(document).ready(function () {
                 "password": Password,
                 "accountType": accountType
             }),
-            success: function (data, status) {
-                alert("Your SignUp has been successful")
-                $(location).attr('href', '../views/login.html')
+            success: function (data) {
+                if(data.status=="200"){
+                    alert("Your SignUp has been successful")
+                    $(location).attr('href', '../views/login.html')
+                }else {
+                    if(data.status=="400"){
+                        window.alert("Please enter a valid email address")
+                    }
+                }
+                
+                
             },
             error: function (error) {
                 $('.spinner').hide()
