@@ -150,7 +150,11 @@ tbody td {
     font-weight: 100;
     vertical-align: middle;
 }
-
+p{
+    color: rgba(255, 255, 255, 0.9);
+    vertical-align: middle;
+    margin-top: 10px;
+}
 span {
     display: block;
     margin-top: 9%;

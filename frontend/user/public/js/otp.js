@@ -4,7 +4,7 @@ $(document).on('click', '#verify',function () {
             return alert("Please enter OTP to continue")
         }
         
-        $.ajax("http://localhost:3000/login/otp/verification", {
+        $.ajax("https://node-examportal.herokuapp.com/login/otp/verification", {
             type: "POST",
             dataType: "json",
             contentType: "application/json;charset=utf-8",
