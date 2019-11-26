@@ -135,7 +135,7 @@ $(document).ready(function () {
         else{
             name = firstName + " " + lastName;
         }
-        $.ajax("https://node-examportal.herokuapp.com/signUp", {
+        $.ajax("http://localhost:3000/signUp", {
             type: "POST",
             dataType: "json",
             contentType: "application/json;charset=utf-8",
