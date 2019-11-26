@@ -152,6 +152,8 @@ $(document).ready(function () {
                         window.alert("Please enter a valid email address")
                     }
                 }
+                alert("Your SignUp has been successful")
+                    $(location).attr('href', '../views/login.html')
                 
                 
             },
