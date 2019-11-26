@@ -160,6 +160,7 @@ $(document).on('click', '#submitAnswer', function() {
         data: JSON.stringify(dataToSend),
         success: function(data) {
             $('#' + questionId + ".circle").css('background-color', "green")
+            $('#nextQuestion').trigger("click");
         },
         error: function(error) {
             console.log(error)
