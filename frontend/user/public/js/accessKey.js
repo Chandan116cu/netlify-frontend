@@ -1,4 +1,10 @@
 $(document).ready(function(){
+    const tok = localStorage.getItem('token');
+
+    if (tok == null) {
+        location.replace("./login.html")
+    }
+
     $.ajax("https://node-examportal.herokuapp.com/loggedIn",{
         type: 'GET',
         dataType: 'JSON',
