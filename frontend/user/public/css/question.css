@@ -6,6 +6,10 @@ body {
     margin-right: 10px;
 }
 
+.change-error-message{
+    color: red;
+    font-weight: bold;
+}
 .modal-title {
     font-weight: 100;
     font-size: 20px;

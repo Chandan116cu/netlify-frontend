@@ -79,10 +79,19 @@ function loadFullWindow() {
 
 function exitHandler() {
     if (!document.fullscreenElement && !document.webkitIsFullScreen && !document.mozFullScreen && !document.msFullscreenElement) {
-        $('#modalEndTest').trigger("click")
+        let count = parseInt(localStorage.getItem('fullWindowExit'))
+        if(count != 3){
+            $('#fullScreenModal').modal('show')
+            count = count + 1
+            let remainingAttempt  = 3 - count
+            $('.change-error-message').text('Do not exit full window. Otherwise test will be submitted automatically. Remaining attempts '+remainingAttempt)
+            localStorage.setItem('fullWindowExit',count)
+        }
+        else{
+            $('#modalEndTest').trigger("click")
+        }  
     }
 }
-
 $(window).on('load', function() {
     $('#fullScreenModal').modal('show')
 })
@@ -97,7 +106,7 @@ $(document).ready(function() {
     document.addEventListener('webkitfullscreenchange', exitHandler);
     document.addEventListener('mozfullscreenchange', exitHandler);
     document.addEventListener('MSFullscreenChange', exitHandler);
-
+     localStorage.setItem('fullWindowExit',0)
     const tok = localStorage.getItem('token');
     if (tok == null) {
         location.replace("./examPortal.html")
