@@ -5,15 +5,15 @@ $(document).ready(function () {
     }
     $.ajax("https://node-examportal.herokuapp.com/checkexaminer", {
         type: 'GET',
-        dataType: 'JSON',
         headers: {
             "token": localStorage.getItem('token'),
             'Authorization': 'Bearer ' + localStorage.getItem('token')
 
         },
         success: function (data) {
-
-            return
+            console.log(data)
+            document.getElementById('main').style.display='block';
+            
 
         },
         error: function (error) {
@@ -29,7 +29,7 @@ $(document).ready(function () {
 
 function showEdit() {
     $("#showEditDiv").fadeIn("slow");
-    $.ajax("http://node-examportal.herokuapp.com/loggedIn", {
+    $.ajax("https://node-examportal.herokuapp.com/loggedIn", {
         type: 'GET',
         dataType: 'JSON',
         headers: {
@@ -49,7 +49,7 @@ function showEdit() {
 }
 
 function showName() {
-    $.ajax("http://node-examportal.herokuapp.com/loggedIn", {
+    $.ajax("https://node-examportal.herokuapp.com/loggedIn", {
         type: 'GET',
         dataType: 'JSON',
         headers: {
@@ -84,7 +84,7 @@ function editDetails() {
     var college = document.getElementById('loggedInCollege').value
     var pass = document.getElementById('loggedInPassword').value
 
-    $.ajax("http://node-examportal.herokuapp.com/examiner", {
+    $.ajax("https://node-examportal.herokuapp.com/examiner", {
         type: 'PATCH',
         dataType: 'JSON',   
         contentType : "application/json",

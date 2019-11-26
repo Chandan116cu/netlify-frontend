@@ -24,7 +24,7 @@ a:hover {
 }
 
 .nav-link:hover {
-    color: blue;
+    color:rgba(255, 255, 255, 0.5);
 }
 
 #marginfromtop {
@@ -150,7 +150,11 @@ tbody td {
     font-weight: 100;
     vertical-align: middle;
 }
-
+p{
+    color: rgba(255, 255, 255, 0.9);
+    vertical-align: middle;
+    margin-top: 10px;
+}
 span {
     display: block;
     margin-top: 9%;
@@ -220,8 +224,11 @@ i {
 
 .show-examiner-table {
     margin-top: 8%;
-    margin-left: 18%;
 }
+#main{
+    display: none;
+}
+
 @media (max-width: 765px) {
     .text{
         margin-top: 22%;
@@ -243,5 +250,12 @@ i {
     .show-examiner-table{
         margin-top: 20%;
         margin-left: 0;
+    }
+    .pos{
+        margin-top: 24%;
+    }
+    .performance{
+        margin-top: 20%;
+        margin-left: 18%;
     }
 }

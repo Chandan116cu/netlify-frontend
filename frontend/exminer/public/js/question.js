@@ -155,7 +155,6 @@ $(document).ready(function(){
                 alert("This exam has no Questions")
                 $(location).attr('href','../views/exam.html')
             }
-
         }
     })
 })

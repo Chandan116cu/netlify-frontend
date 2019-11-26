@@ -108,11 +108,27 @@ $(document).ready(() => {
                     alert('No Exam created')
                     $(location).attr('href', '../views/examiner.html')
                 }
-                if(error.responseText=="unauthorized");
+            
+            }
+        })
+        $.ajax("https://node-examportal.herokuapp.com/exam", {
+            type: 'GET',
+            //contentType: "application/json",
+            headers: {
+                token: localStorage.getItem('token'),
+                Authorization: "Bearer "+localStorage.getItem('token')
+            },
+            success: function(data) {
+                return
+            },
+            error: function(error) {
+                  if(error.responseText=="unauthorized")
                 {
-                    window.location.replace('../../un.html')
+                    console.log(error.responseText)
+                   // window.location.replace('../../un.html')
                 }
             
             }
+
         })
     })
