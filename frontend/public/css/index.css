@@ -133,6 +133,9 @@ span{
    .g2{
       width: 100%;
    }
+   .heading{
+      font-size: 30px;
+   }
    body{
       overflow: auto;
    }
