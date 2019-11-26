@@ -16,11 +16,12 @@ $(document).on('click', '#loginButton', function() {
             }),
             success:async function(data) {
                 // localStorage.setItem('token', data.token)
-                if(data.verification=="required"){
-                    localStorage.setItem('email',email)
-                    location.replace('./otp.html')
-                }
-                else if (data.accountType == "Examiner")
+                // if(data.verification=="required"){
+                //     localStorage.setItem('email',email)
+                //     location.replace('./otp.html')
+                // }
+                // else
+                 if (data.accountType == "Examiner")
                     {
                         localStorage.setItem('token', data.token);
                         $(location).attr('href', '../../exminer/views/examiner.html');
