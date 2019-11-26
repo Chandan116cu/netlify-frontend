@@ -112,7 +112,7 @@ function studentDetails(a) {
             while (i < data.b.length) {
 
                 let tr = document.createElement('tr')
-                tr.innerHTML = "<td>"+data.a[i].email+"</td>"+"<td>" + data.a[i].name + "</td>" + "<td>" + data.b[i].testCode + "</td>" + "<td>" + data.b[i].totalScore + "</td>" + "<td>" + data.c + "</td>" + "<td>" + (data.b[i].totalScore / data.c) * 100 + "%" + "</td>";
+                tr.innerHTML = "<td>"+data.a[i].email+"</td>"+"<td>" + data.a[i].name + "</td>" + "<td>" + data.b[i].testCode + "</td>" + "<td>" + data.b[i].totalScore + "</td>" + "<td>" + data.c + "</td>" + "<td>" + (data.b[i].totalScore / data.c).toFixed(2) * 100 + "%" + "</td>";
                 $("#tcan").fadeIn()
                 $("#tcan").append(tr)
                 flag = 1;
