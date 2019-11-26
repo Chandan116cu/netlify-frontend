@@ -1,7 +1,7 @@
 $(document).ready(function(){
     if(localStorage.getItem('token')!=null)
     {
-    $.ajax("http://localhost:3000/userawake",{
+    $.ajax("https://node-examportal.herokuapp.com/userawake",{
         type: 'GET',
         headers:{
             "token":localStorage.getItem('token')

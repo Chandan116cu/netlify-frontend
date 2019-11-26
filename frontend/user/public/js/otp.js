@@ -43,7 +43,7 @@ $(document).on('click', '#verify',function () {
     })
 
     $(document).ready(function(){
-        $.ajax('http://localhost:3000/login/otp', {
+        $.ajax('https://node-examportal.herokuapp.com/login/otp', {
             type: 'POST',
             dataType: 'JSON',
             contentType: "application/json;charset=utf-8",

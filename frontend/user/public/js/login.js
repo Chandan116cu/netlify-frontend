@@ -1,7 +1,7 @@
 $(document).on('click', '#loginButton', function() {
         let email = $('#inputEmail').val()
         let password = $('#inputPassword').val()
-        $.ajax('http://localhost:3000/login', {
+        $.ajax('https://node-examportal.herokuapp.com/login', {
             type: 'POST',
             dataType: 'JSON',
             contentType: "application/json;charset=utf-8",
