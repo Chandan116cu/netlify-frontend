@@ -125,13 +125,14 @@ label {
         width: 90%;
     }
 }
-@media(max-width:200px){
+@media(max-width:420px){
     .flex-1{
         width: 40%;
-        margin-top: 15px;
+        /* margin-top: 15px; */
     }
     .flex{
-        width: 40%;
+        width: 100%;
+        height: 85%;
     }
     .modal-content {
         width: 100%;
