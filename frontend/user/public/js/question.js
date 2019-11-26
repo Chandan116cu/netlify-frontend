@@ -6,7 +6,7 @@ function loadQuestions(data, startTime, duration, examName) {
     $('#options').empty()
     const op = document.querySelector('#options')
     if (data[0].questionImage !== null) {
-        imageURL = "../../exminer/" + data[0].questionImage.substring(2, data[0].questionImage.length)
+        imageURL = data[0].questionImage.substring(2, data[0].questionImage.length)
         imageStatus = true
     } else imageStatus = false
 
