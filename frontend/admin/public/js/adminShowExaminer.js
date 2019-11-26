@@ -6,6 +6,7 @@ function deleteexaminer(id)
 function logout()
 {
    localStorage.removeItem("token");
+   localStorage.clear();
    window.location.replace("../../user/views/login.html");
 }
 function samepage()

@@ -105,8 +105,8 @@ $(document).ready(function() {
             },
             success: function (data) {
                 console.log(data)
-                document.getElementById('span').innerHTML = 'Welcome ' + data + '! &nbsp; &nbsp; '
-                localStorage.setItem("loggedInName", data)
+                document.getElementById('span').innerHTML = 'Welcome ' + data.name + '! &nbsp; &nbsp; '
+                localStorage.setItem("loggedInName", data.name)
             },
             error: function (error) {
                 console.log('not working')
