@@ -42,25 +42,25 @@
                     
                     <div class="form-group">
                         <label for="email"><b>Email</b></label>
-                        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                        <input type="email" id="inputEmail" class="form-control" placeholder="(eg. abc@gmail.com)" required autofocus>
                         <div class="valid-feedback">Valid.</div>
                         <div class="invalid-feedback">Please fill out this field.</div>
                     </div>
                     <div class="form-group">
                         <label for="password"><b>Password</b></label>
-                        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                        <input type="password" id="inputPassword" class="form-control" placeholder="Enter Password" required>
                         <div class="valid-feedback">Valid.</div>
                         <div class="invalid-feedback">Please fill out this field.</div>
                     </div>
-
+                    <div class="container" style="width: 450px; margin-right:70px;">
+                        <div class="alert alert-danger alert-dismissible fade show" id="alert-box">
+                            <strong>Alert!</strong> Invalid Credentials.
+                            <button type="button" id="okButton" class="close" data-dismiss="alert">OK</button>
+                        </div>
+                    </div>
                     <button class="btn btn-success my-2 my-sm-0" style="color: white;" id="loginButton" type="button">Login</button>
                 </form>
-                <div class="container" style="width: 345px;">
-                    <div class="alert alert-danger alert-dismissible fade show" id="alert-box">
-                        <strong>Alert!</strong> Invalid Credentials.
-                        <button type="button" id="okButton" class="close" data-dismiss="alert">OK</button>
-                    </div>
-                </div>
+               
             </div>
         </div>
 
