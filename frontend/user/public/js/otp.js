@@ -23,9 +23,9 @@ $(document).on('click', '#verify',function () {
             success: function (data) {
                 if(data.code=="200"&&data.message=="verified successfully"){
                     localStorage.removeItem('email');
-                    localStorage.setItem('token',data.token);
-                    window.alert("Your Phone number has been verified")
-                    $(location).attr('href', '../views/accessKey.html')
+                    //localStorage.setItem('token',data.token);
+                    window.alert("Your Email has been verified! Login again to continue")
+                    $(location).attr('href', './login.html')
                 }else if(data.code=="400"){
                     alert("Your OTP does not matched. Try again")
                     location.reload();
