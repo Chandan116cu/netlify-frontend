@@ -235,15 +235,15 @@ a:hover {
     margin: auto;
     /* margin-left: 90px; */
     width: 40%;
-    height: 680px;
+    /* height: 680px; */
     font-size: 1.5em;
-    padding-left: 10px;
-    padding-right: 10px;
     border-top-width: 0px;
     border-top-style: solid;
     border-top-color: orange;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
     background: white;
+    margin-bottom: 10px;
+    padding: 10px;
 }
 
 label {
@@ -310,7 +310,11 @@ option {
         position: fixed;
     }
     .question-div{
-        width: 70%
+        width: 70%;
+        margin-top: 40px;
+    }
+    .addExamDetail{
+        width: 100%;
     }
   }
 
@@ -330,6 +334,12 @@ option {
     }
     .question-div{
         width: 70%
+    }
+    .addExamDetail{
+        width: 70%;
+    }
+    .addQuestion{
+        width: 70%;
     }
  }
 .fixed{
