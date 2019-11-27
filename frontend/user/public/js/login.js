@@ -14,13 +14,25 @@ $(document).on('click', '#loginButton', function() {
                 'email': email,
                 'password': password
             }),
-            success: function(data) {
-                 localStorage.setItem('token', data.token)
-                if (data.accountType == "Examiner")
-                    $(location).attr('href', '../../exminer/views/examiner.html')
-                else if (data.accountType == "Student")
+            success:async function(data) {
+                // localStorage.setItem('token', data.token)
+                // if(data.verification=="required"){
+                //     localStorage.setItem('email',email)
+                //     location.replace('./otp.html')
+                // }
+                // else
+                 if (data.accountType == "Examiner")
+                    {
+                        localStorage.setItem('token', data.token);
+                        $(location).attr('href', '../../exminer/views/examiner.html');
+                    }
+                else if (data.accountType == "Student"){
+                    localStorage.setItem('token', data.token);
                     $(location).attr('href', './accessKey.html')
-                else {
+                }
+                    
+                else if(data.accountType == "Admin") {
+                    localStorage.setItem('token', data.token);
                     $(location).attr('href', '../../admin/views/adminHome.html')
                 }
             },
@@ -44,4 +56,6 @@ $(document).on('click', '#loginButton', function() {
     document.getElementById("loginButton").click();
   }
 });
+
+
     // })

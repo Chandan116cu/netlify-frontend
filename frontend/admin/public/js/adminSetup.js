@@ -94,6 +94,26 @@ function logout() {
     window.location.replace("../../index.html");
 }
 $(document).ready(function() {
+    
+        $.ajax("https://node-examportal.herokuapp.com/loggedIn", {
+            type: 'GET',
+           // dataType: 'JSON',
+            headers: {
+                "token": localStorage.getItem('token'),
+                'Authorization': 'Bearer ' + localStorage.getItem('token')
+    
+            },
+            success: function (data) {
+                console.log(data)
+                document.getElementById('span').innerHTML = 'Welcome ' + data.name + '! &nbsp; &nbsp; '
+                localStorage.setItem("loggedInName", data.name)
+            },
+            error: function (error) {
+                console.log('not working')
+            }
+        })
+    
+    
     $("#submit").click(function(e) {
         e.preventDefault();
         var email = document.getElementById("email").value;

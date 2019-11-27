@@ -10,9 +10,13 @@ $(document).on('click', '.startTest', function() {
         data: {
             examCode: localStorage.getItem("examCode")
         },
-        success: function() {
+        success: function(data) {
+            if(data.submitStatus){
+                $('.error-msg').text("You have already submitted the test")
+            }
+            else{
                 $(location).attr('href', './question.html')
-            },
+            }},
         error: function(error) { console.log(error)}
     })
 
