@@ -111,7 +111,7 @@ $(document).ready(() => {
             
             }
         })
-        $.ajax("https://node-examportal.herokuapp.com/checkExaminer", {
+       $.ajax("https://node-examportal.herokuapp.com/checkExaminer", {
             type: 'GET',
             //contentType: "application/json",
             headers: {
@@ -119,7 +119,7 @@ $(document).ready(() => {
                 Authorization: "Bearer "+localStorage.getItem('token')
             },
             success: function(data) {
-                document.getElementById('main').style.display='block';
+                                document.getElementById('main').style.display='block';
                 return
             },
             error: function(error) {
