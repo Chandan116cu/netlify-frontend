@@ -39,6 +39,8 @@ $(document).ready(function () {
     },
     success: function (recent) {
       display(recent);
+      document.getElementById('main').style.display='block';
+      return
       // console.log(recent);
     },
     error: function (error) {
