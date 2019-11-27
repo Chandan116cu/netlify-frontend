@@ -1,4 +1,29 @@
 $(document).ready(function () {
+    $("#loggedInName").on("keyup", (event) => {
+        let regex1 = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/
+        if (regex1.test($("#loggedInName").val()) == true ) {
+    
+            $('#view_Invalid1').hide()
+            $('#view_Valid1').show()
+        }
+        else {
+            $('#view_Valid1').hide()
+            $('#view_Invalid1').show()
+        }
+    })
+    $("#loggedInPhone").on("keyup", (event) => {
+        // console.log(event.target.value);
+        let regex1 = /^[5-9]\d{9}$/;
+
+        if (regex1.test($("#loggedInPhone").val()) == true) {
+            $('#view_Invalid4').hide()
+            $('#view_Valid4').show()
+        }
+        else {
+            $('#view_Valid4').hide()
+            $('#view_Invalid4').show()
+        }
+    })
     const tok = localStorage.getItem('token');
     if (tok == null) {
         location.replace("../../index.html")
@@ -11,8 +36,9 @@ $(document).ready(function () {
 
         },
         success: function (data) {
+            console.log(data)
             document.getElementById('main').style.display='block';
-            return
+            
 
         },
         error: function (error) {
@@ -26,9 +52,10 @@ $(document).ready(function () {
 
 })
 
+
 function showEdit() {
     $("#showEditDiv").fadeIn("slow");
-    $.ajax("http://node-examportal.herokuapp.com/loggedIn", {
+    $.ajax("https://node-examportal.herokuapp.com/loggedIn", {
         type: 'GET',
         dataType: 'JSON',
         headers: {
@@ -48,7 +75,7 @@ function showEdit() {
 }
 
 function showName() {
-    $.ajax("http://node-examportal.herokuapp.com/loggedIn", {
+    $.ajax("https://node-examportal.herokuapp.com/loggedIn", {
         type: 'GET',
         dataType: 'JSON',
         headers: {
@@ -83,7 +110,7 @@ function editDetails() {
     var college = document.getElementById('loggedInCollege').value
     var pass = document.getElementById('loggedInPassword').value
 
-    $.ajax("http://node-examportal.herokuapp.com/examiner", {
+    $.ajax("https://node-examportal.herokuapp.com/examiner", {
         type: 'PATCH',
         dataType: 'JSON',   
         contentType : "application/json",

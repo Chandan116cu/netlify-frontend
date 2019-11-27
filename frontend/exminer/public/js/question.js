@@ -1,8 +1,7 @@
 function removeQuestion(id){
 
-    console.log(id)
     let qsId = $("#"+id).parent().parent().attr('id')
-    console.log(qsId)
+
     $.ajax("https://node-examportal.herokuapp.com/exam/question/"+qsId, {
 
         type: 'DELETE',
@@ -20,7 +19,6 @@ function removeQuestion(id){
         }) 
 }
 function setQsId(id){
-    console.log('id ',id)
     $("#delQ").attr('id', id)
 }
 function updateQues(id,type) {
@@ -121,7 +119,7 @@ function editQuestion(id) {
 }
 $(document).ready(function(){
     let examCode = localStorage.getItem('examCode')
-    let url = "https://node-examportal.herokuapp.com/exam/"+ encodeURIComponent(examCode)+"/question"
+    let url = "https://node-examportal.herokuapp.com/exam/"+ examCode+"/question"
     $.ajax(url, {
         type: 'GET',
         dataType: 'json',
@@ -154,10 +152,6 @@ $(document).ready(function(){
             if( error.responseText =='Not Found'){
                 alert("This exam has no Questions")
                 $(location).attr('href','../views/exam.html')
-            }
-            if (error.responseText == "unauthorized");
-            {
-              window.location.replace('../../un.html')
             }
         }
     })

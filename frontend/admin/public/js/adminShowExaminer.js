@@ -6,6 +6,7 @@ function deleteexaminer(id)
 function logout()
 {
    localStorage.removeItem("token");
+   localStorage.clear();
    window.location.replace("../../user/views/login.html");
 }
 function samepage()
@@ -23,11 +24,11 @@ function loadSetupExaminerPage(data){
 
 
 $(document).ready(function () {
-  // const tok =localStorage.getItem('token');
-  // if(tok == null)
-  // {
-  //   location.replace("../../index.html")
-  // }
+  const tok =localStorage.getItem('token');
+  if(tok == null)
+  {
+    location.replace("../../index.html")
+  }
   //$.ajax('http://localhost:'+localStorage.getItem('server-port')+'/exam/accessKey', {
   $.ajax("https://node-examportal.herokuapp.com/examiner", {
     type: "GET",
@@ -38,6 +39,8 @@ $(document).ready(function () {
     },
     success: function (recent) {
       display(recent);
+      document.getElementById('main').style.display='block';
+      return
       // console.log(recent);
     },
     error: function (error) {

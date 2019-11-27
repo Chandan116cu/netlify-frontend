@@ -18,9 +18,14 @@
 </head>
 
 <body onload="showName()">
+    <div id="main">
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: black;">
         <img src="../../user/public/assets/cybergrouplogo.png" class="logo" style="width: 12% !important;">
+<<<<<<< HEAD
         <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" dat-target="#navbarSupportedContent">
+=======
+        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" data-target="#navbarSupportedContent">
+>>>>>>> upstream/master
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -74,6 +79,7 @@
     <!-- append edit exam form template here-->
     <div class="container-fluid" id="display-form">
     </div>
+<!-- </div> -->
     <!-- display exam detail template -->
     <script id="display-exam-detail" type="text/html">
         <div class="row content" id="{{_id}}">
@@ -84,7 +90,7 @@
                 <p>{{examCode}}</p>
             </div>
             <div class="col-md-2">
-                <p>{{examDuration}}</p>
+                <p>{{examDuration}} minutes</p>
             </div>
             <div class="col-md-2">
                 <p>{{examStartTime}}</p>
@@ -153,7 +159,7 @@
                     </button>
                 </div>
                 <div class="modal-body" id="modalBody">
-                    <h4>You delete this item?</4>
+                    <h4>You want to delete this Exam?</4>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-outline-info" data-dismiss="modal">No</button>
@@ -162,6 +168,9 @@
             </div>
         </div>
     </div>
+    </div>
+    
+  
 </body>
 
 </html>

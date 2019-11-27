@@ -228,7 +228,7 @@ $(document).ready(function () {
         //     alert("Please enter question");
         //     return
         // }
-        if ($("#addExamName").val().length == 0) {
+        if ($("#addtestQuestion").val().length == 0) {
             $('#view_Invalid5').show()
         }
         var option = $("input[type=radio][name=colorRadio]:checked").val();
@@ -276,10 +276,7 @@ $(document).ready(function () {
                 return
             }
         }
-        // if (weightage === "") {
-        //     alert("Please enter weightage");
-        //     return
-        // }
+        
         if ($("#addtestWeightage").val().length == 0) {
             $('#view_Invalid6').show()
         }
@@ -339,7 +336,6 @@ $(document).ready(function () {
         });
     })
 
-    // function validateForm(event) { }
 })
 
 //this uploads excel file
@@ -351,7 +347,7 @@ function excelUpload(event) {
 
     formData.append('excelFile', $('input[type=file]')[0].files[0])
     console.log(formData.get('excelFile'));
-    $.ajax("http://localhost:" + localStorage.getItem('server-port') + '/exam/questions/uploadExcel', {
+    $.ajax("https://node-examportal.herokuapp.com/exam/questions/uploadExcel", {
         type: 'POST',
         data: formData,
         headers: {

@@ -51,7 +51,7 @@ function editExamDetail(id) {
         },
         success: function(data) {
             let editForm = $("#edit-exam-detail").html()
-            $("#display-form").append(Mustache.render(editForm, data[0]))
+            $("#display-form").append(Mustache.render(editForm, data))
         },
         error: function(error) {
             console.log(error)
@@ -109,11 +109,28 @@ $(document).ready(() => {
                     alert('No Exam created')
                     $(location).attr('href', '../views/examiner.html')
                 }
-                if(error.responseText=="unauthorized");
+            
+            }
+        })
+       $.ajax("https://node-examportal.herokuapp.com/checkExaminer", {
+            type: 'GET',
+            //contentType: "application/json",
+            headers: {
+                token: localStorage.getItem('token'),
+                Authorization: "Bearer "+localStorage.getItem('token')
+            },
+            success: function(data) {
+                                document.getElementById('main').style.display='block';
+                return
+            },
+            error: function(error) {
+                  if(error.responseText=="unauthorized")
                 {
-                    window.location.replace('../../un.html')
+                    console.log(error.responseText)
+                   // window.location.replace('../../un.html')
                 }
             
             }
+
         })
     })

@@ -4,8 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://unpkg.com/bs-stepper/dist/css/bs-stepper.min.css">
     <link rel="icon" href="https://www.cygrp.com/wp-content/uploads/2019/06/cybergroup-site-icon.png"
         type="image/x-icon">
@@ -17,7 +16,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: black;">
         <img src="../../user/public/assets/cybergrouplogo.png" class="logo">
         <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navbarSupportedContent"
-            aria-expanded="false" aria-label="Toggle navigation">
+            aria-expanded="false" aria-label="Toggle navigation" data-target="#navbarSupportedContent">
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -67,29 +66,54 @@
                         <!-- <h3> Step 1</h3> -->
                         <div class="form-group">
                             <label class="control-label">Exam Name</label>
-                            <input maxlength="100" type="text" class="form-control" placeholder="Enter Exam Name"
+                            <input maxlength="100" type="text" class="form-control" placeholder="eg Mechanical2019"
                                 id="addExamName" />
+                                <div class="valid-feedback" id="view_Valid1" style="display: none;" >
+                                    Looks good!
+                            </div>
+                            <div class = "invalid-feedback" id="view_Invalid1" style="display: none;">
+                                Please Enter a valid exam name
+                            </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label">Exam Code</label>
-                            <input maxlength="100" type="text" class="form-control" placeholder="Enter Exam Code"
+                            <input maxlength="100" type="text" class="form-control" placeholder="Min length-3 and Max length-8"
                                 id="addExamCode" />
+                                <div class="valid-feedback" id="view_Valid2" style="display: none;" >
+                                    Looks good!
+                            </div>
+                            <div class = "invalid-feedback" id="view_Invalid2" style="display: none;">
+                                Please Enter a valid exam code
+                            </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label">Exam Duration</label>
-                            <input maxlength="100" type="text" class="form-control" placeholder="Enter Exam Duration(in minutes)"
+                            <input maxlength="100" type="text" class="form-control" placeholder="Min time-10 and Max time -1000 (minutes)"
                                 id="addExamDuration" />
+                                <div class="valid-feedback" id="view_Valid3" style="display: none;" >
+                                    Looks good!
+                            </div>
+                            <div class = "invalid-feedback" id="view_Invalid3" style="display: none;">
+                                Please Enter valid exam duration
+                            </div>
                         </div>
                         
                         <div class="input-appenddate">
                             
                             <div class="form-group">
                                     <label class="control-label">Exam Date</label>
-                                <input id="addExamTestDate" data-format="yyyy-mm-dd HH:mm" placeholder="MM/dd/yyyy HH:mm"/>
+                                <input id="addExamTestDate" data-format="yyyy-mm-dd HH:MM" placeholder="yyyy-mm-dd hh:mm"/>
                             </div>
+                            <div class="valid-feedback" id="view_Valid4" style="display: none;" >
+                                Looks good!
+                        </div>
+                        <div class = "invalid-feedback" id="view_Invalid4" style="display: none;">
+                            Please Enter exam date
+                        </div>
                            
                           </div>
-                        <button class="btn btn-primary nextBtn pull-right" type="button" id="btnSave">Next</button>
+                          <button class="btn btn-success align" type="button" id="btnSave">Submit</button>
+                        <button class="btn btn-primary nextBtn pull-right" type="button">Next</button>
                     </div>
                 </div>
             </div>
@@ -143,6 +167,12 @@
                             <label class="control-label">Question</label>
                             <input maxlength="100" type="text" id="addtestQuestion" class="form-control"
                                 placeholder="Enter Question" />
+                                <div class="valid-feedback5" id="view_Valid1" style="display: none;" >
+                                    Looks good!
+                            </div>
+                            <div class = "invalid-feedback5" id="view_Invalid1" style="display: none;">
+                                Please Enter Question
+                            </div>
                         </div>
 
                         <div class="form-group">
@@ -223,6 +253,12 @@
                             <label class="control-label">Weightage</label>
                             <input maxlength="100" type="text" id="addtestWeightage" class="form-control"
                                 placeholder="Enter Weightage" />
+                                <div class="valid-feedback6" id="view_Valid1" style="display: none;" >
+                                    Looks good!
+                            </div>
+                            <div class = "invalid-feedback6" id="view_Invalid1" style="display: none;">
+                                Please Enter Weightage
+                            </div>
                         </div>
                         <button class="btn btn-success pull-right " type="button" id="submitBtn">Submit
                             Question</button>
@@ -263,7 +299,6 @@
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script src="https://unpkg.com/bs-stepper/dist/js/bs-stepper.min.js"></script>
 <script src="../public/js/examiner.js"></script>
 <script type="text/javascript" src="../public/js/examDetails.js"></script>
