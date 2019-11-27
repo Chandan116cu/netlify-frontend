@@ -50,7 +50,7 @@ function editExamDetail(id) {
         },
         success: function(data) {
             let editForm = $("#edit-exam-detail").html()
-            $("#display-form").append(Mustache.render(editForm, data[0]))
+            $("#display-form").append(Mustache.render(editForm, data))
         },
         error: function(error) {
             console.log(error)
