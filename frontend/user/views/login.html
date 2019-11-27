@@ -12,6 +12,7 @@
     <!-- cybergroup logo on top -->
     <link rel="icon" href="https://www.cygrp.com/wp-content/uploads/2019/06/cybergroup-site-icon.png" type="image/x-icon">
     <link rel="stylesheet" href="../../public/css/loader.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -53,6 +54,7 @@
                     <div class="form-group">
                         <label for="password"><b>Password</b></label>
                         <input type="password" id="inputPassword" class="form-control" placeholder="Enter Password" required>
+                        <span toggle="#inputPassword" class="fa fa-fw fa-eye field-icon toggle-password" onmousedown="showpasswordtext()" onmouseup="showpassword()"></span>  
                         <div class="valid-feedback">Valid.</div>
                         <div class="invalid-feedback">Please fill out this field.</div>
                     </div>

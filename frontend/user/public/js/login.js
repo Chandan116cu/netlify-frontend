@@ -1,3 +1,16 @@
+function showpasswordtext()
+{
+  var x = document.getElementById("inputPassword");
+ 
+    x.type = "text";
+}
+
+function showpassword()
+{
+  var x = document.getElementById("inputPassword");
+  
+    x.type = "password";
+}
 $(document).on('click', '#loginButton', function() {
         let email = $('#inputEmail').val()
         let password = $('#inputPassword').val()
