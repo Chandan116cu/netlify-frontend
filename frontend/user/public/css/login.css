@@ -87,6 +87,10 @@ label {
 .cg{
     animation: rotate 1.2s infinite;
 }
+::placeholder{
+    font-size: 12px;
+    vertical-align: middle;
+}
 @keyframes rotate{
 
  0%   {transform: rotateY(0deg);}

@@ -10,6 +10,10 @@ body {
 #main{
     display: none;
 }
+::placeholder{
+    font-size: 12px;
+    vertical-align: middle;
+}
 .container {
     margin: auto;
     width: 100%;
