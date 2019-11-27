@@ -161,6 +161,34 @@ $(document).ready(function() {
         });
     })
 });
+function excelUpload(event) {
+ 
+    event.preventDefault();
+    var formData = new FormData();
+    formData.append('examCode', tempExamCode)
+   
+    formData.append('excelFile', $('input[type=file]')[0].files[0])
+    console.log(formData.get('excelFile'));
+    $.ajax("https://node-examportal.herokuapp.com/exam/questions/uploadExcel", {
+        type: 'POST',
+        data: formData,
+        headers: {
+            token: localStorage.getItem('token'),
+            Authorization: "Bearer "+localStorage.getItem('token')
+        },
+        lowerCaseHeaders: true,
+        contentType:false,
+        processData: false,
+        success: function (data) {
+            alert("You have successfully uploaded the questions through excel file")
+            $(location).attr('href', './exam.html')
+            
+        },
+        error: function (error) {
+            console.log(error + " " + error)
+        }
+    })
+}
 
 function logout() {
     localStorage.clear()

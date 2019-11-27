@@ -119,7 +119,7 @@ function editQuestion(id) {
 }
 $(document).ready(function(){
     let examCode = localStorage.getItem('examCode')
-    let url = "https://node-examportal.herokuapp.com/exam/"+ encodeURIComponent(examCode)+"/question"
+    let url = "https://node-examportal.herokuapp.com/exam/"+ examCode+"/question"
     $.ajax(url, {
         type: 'GET',
         dataType: 'json',
