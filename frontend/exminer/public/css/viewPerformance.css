@@ -120,6 +120,13 @@ table {
  height: 500px;
  margin: 0 auto;
  }
+ ::placeholder{
+    font-size: 12px;
+    vertical-align: middle;
+}
+ #main{
+     display: none;
+ }
  @media (max-width: 760px) {
      .performance-text{
          margin-top: 20%;

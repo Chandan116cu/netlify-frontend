@@ -129,7 +129,10 @@ select {
  ::placeholder {
     font-weight: 100;
     color: rgba(0, 0, 0, 0.5);
+    font-size: 12px;
+    vertical-align: middle;
 }
+
 
 #span {
     font-weight: 200;
@@ -222,6 +225,7 @@ i {
 #main{
     display: none;
 }
+
 #loggedInEmail,#loggedInPassword{
     color: rgba(0, 0, 0, 0.5);
 }

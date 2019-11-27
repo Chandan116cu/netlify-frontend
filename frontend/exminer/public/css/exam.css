@@ -66,6 +66,9 @@ h5 {
     text-align: center;
     color: rgba(0, 0, 0, 0.5);
 }
+#main{
+    display: none;
+}
 
 .content {
     text-align: center;
@@ -111,7 +114,10 @@ a {
     border-radius: 5px;
     background-color: rgba(255, 255, 255, 0.8);
 }
-
+::placeholder{
+    font-size: 12px;
+    vertical-align: middle;
+}
 .qustion-index{
     display: block;
     background-color: rgba(255, 255, 255, 0.9);
