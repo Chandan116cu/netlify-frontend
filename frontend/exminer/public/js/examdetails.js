@@ -58,7 +58,7 @@ $(document).ready(function () {
     $('#btnSave').attr('disabled', true)
     $('.form-test input').keyup(function () {
         $("#addExamName").on("keyup", (event) => {
-            let regex1 = /^([a-zA-Z]\S){3,30}$/;
+            let regex1 = /^([a-zA-Z]){3,30}$/;
             if (regex1.test($("#addExamName").val()) == true) {
                 $('#view_Invalid1').hide()
                 $('#view_Valid1').show()
@@ -72,7 +72,7 @@ $(document).ready(function () {
         })
 
         $("#addExamCode").on("keyup", (event) => {
-            let regex1 = /^([a-zA-Z0-9 _-]\S){3,8}$/;        ;
+            let regex1 = /^([a-zA-Z0-9 _-]){3,8}$/;        ;
             if (regex1.test($("#addExamCode").val()) == true) {
                 $('#view_Invalid2').hide()
                 $('#view_Valid2').show()
