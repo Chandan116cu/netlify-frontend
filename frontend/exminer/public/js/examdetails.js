@@ -228,7 +228,7 @@ $(document).ready(function () {
         //     alert("Please enter question");
         //     return
         // }
-        if ($("#addtestQuestion").val().length == 0) {
+        if ($("#addExamName").val().length == 0) {
             $('#view_Invalid5').show()
         }
         var option = $("input[type=radio][name=colorRadio]:checked").val();
@@ -276,7 +276,10 @@ $(document).ready(function () {
                 return
             }
         }
-        
+        // if (weightage === "") {
+        //     alert("Please enter weightage");
+        //     return
+        // }
         if ($("#addtestWeightage").val().length == 0) {
             $('#view_Invalid6').show()
         }
@@ -336,6 +339,7 @@ $(document).ready(function () {
         });
     })
 
+    // function validateForm(event) { }
 })
 
 //this uploads excel file
