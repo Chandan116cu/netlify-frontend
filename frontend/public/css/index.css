@@ -116,6 +116,10 @@ p{
 span{
    display: block;
 }
+::placeholder{
+   font-size: 12px;
+   vertical-align: middle;
+}
 .version1{
   
    font-weight: 700;

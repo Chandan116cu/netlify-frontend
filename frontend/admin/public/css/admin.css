@@ -227,6 +227,10 @@ i {
 #main{
     display: none;
 }
+::placeholder{
+    font-size: 12px;
+    vertical-align: middle;
+}
 
 @media (max-width: 765px) {
     .text{

@@ -120,6 +120,10 @@ table {
  height: 500px;
  margin: 0 auto;
  }
+ ::placeholder{
+    font-size: 12px;
+    vertical-align: middle;
+}
  #main{
      display: none;
  }
