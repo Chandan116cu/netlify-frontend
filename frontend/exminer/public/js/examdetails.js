@@ -58,7 +58,7 @@ $(document).ready(function () {
     $('#btnSave').attr('disabled', true)
     $('.form-test input').keyup(function () {
         $("#addExamName").on("keyup", (event) => {
-            let regex1 = /^([a-zA-Z]\S){3,30}$/;
+            let regex1 = /^([a-zA-Z]){3,30}$/;
             if (regex1.test($("#addExamName").val()) == true) {
                 $('#view_Invalid1').hide()
                 $('#view_Valid1').show()
@@ -72,7 +72,7 @@ $(document).ready(function () {
         })
 
         $("#addExamCode").on("keyup", (event) => {
-            let regex1 = /^([a-zA-Z0-9 _-]\S){3,8}$/;        ;
+            let regex1 = /^([a-zA-Z0-9 _-]){3,8}$/;        ;
             if (regex1.test($("#addExamCode").val()) == true) {
                 $('#view_Invalid2').hide()
                 $('#view_Valid2').show()
@@ -195,7 +195,7 @@ $(document).ready(function () {
                 examDuration: testDuration,
                 examStartTime: testDate
             }
-            $.ajax("https://node-examportal.herokuapp.com/exam", {
+            $.ajax("http://node-examportal.herokuapp.com/exam", {
                 type: "POST",
                 dataType: "json",
                 headers: {
@@ -228,7 +228,7 @@ $(document).ready(function () {
         //     alert("Please enter question");
         //     return
         // }
-        if ($("#addtestQuestion").val().length == 0) {
+        if ($("#addExamName").val().length == 0) {
             $('#view_Invalid5').show()
         }
         var option = $("input[type=radio][name=colorRadio]:checked").val();
@@ -276,7 +276,10 @@ $(document).ready(function () {
                 return
             }
         }
-        
+        // if (weightage === "") {
+        //     alert("Please enter weightage");
+        //     return
+        // }
         if ($("#addtestWeightage").val().length == 0) {
             $('#view_Invalid6').show()
         }
@@ -293,7 +296,7 @@ $(document).ready(function () {
         formData.append('answerType', answerType);
         formData.append('questionImage', $('input[type=file]')[1].files[0]);
         // debugger
-        $.ajax("https://node-examportal.herokuapp.com/exam/question", {
+        $.ajax("http://node-examportal.herokuapp.com/exam/question", {
             type: "POST",
             data: formData,
             dataType: "JSON",
@@ -336,6 +339,7 @@ $(document).ready(function () {
         });
     })
 
+    // function validateForm(event) { }
 })
 
 //this uploads excel file
@@ -347,7 +351,7 @@ function excelUpload(event) {
 
     formData.append('excelFile', $('input[type=file]')[0].files[0])
     console.log(formData.get('excelFile'));
-    $.ajax("https://node-examportal.herokuapp.com/exam/questions/uploadExcel", {
+    $.ajax("http://node-examportal.herokuapp.com/exam/questions/uploadExcel", {
         type: 'POST',
         data: formData,
         headers: {
