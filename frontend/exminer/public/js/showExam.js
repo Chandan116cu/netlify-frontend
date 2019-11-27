@@ -111,7 +111,7 @@ $(document).ready(() => {
             
             }
         })
-        $.ajax("https://node-examportal.herokuapp.com/exam", {
+        $.ajax("https://node-examportal.herokuapp.com/checkExaminer", {
             type: 'GET',
             //contentType: "application/json",
             headers: {
