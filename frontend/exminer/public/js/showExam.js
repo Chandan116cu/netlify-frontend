@@ -40,12 +40,13 @@ function editExamDetail(id) {
     let examObjId = $('#' + id).parent().parent().attr('id')
     let mainId = $('#' + id).parent().parent().parent().parent().attr('id')
     $('#' + mainId).hide()
-    $.ajax("https://node-examportal.herokuapp.com/exam/" + examObjId, {
+    console.log(examObjId)
+    $.ajax("https://node-examportal.herokuapp.com/exam" + examObjId, {
         type: 'GET',
         dataType: 'json',
         contentType: "application/json",
         headers: {
-            'token': localStorage.getItem('token'),
+            token: localStorage.getItem('token'),
             Authorization: "Bearer "+localStorage.getItem('token')
         },
         success: function(data) {
