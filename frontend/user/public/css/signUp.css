@@ -44,6 +44,10 @@ h1 {
     font-weight: 100;
     margin-top: 10px;
 }
+::placeholder{
+    font-size: 12px;
+    vertical-align: middle;
+}
 
 .flex {
     margin-top: 50px;
