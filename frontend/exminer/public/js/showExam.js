@@ -119,6 +119,7 @@ $(document).ready(() => {
                 Authorization: "Bearer "+localStorage.getItem('token')
             },
             success: function(data) {
+                document.getElementById('main').style.display='block';
                 return
             },
             error: function(error) {

@@ -120,6 +120,9 @@ table {
  height: 500px;
  margin: 0 auto;
  }
+ #main{
+     display: none;
+ }
  @media (max-width: 760px) {
      .performance-text{
          margin-top: 20%;

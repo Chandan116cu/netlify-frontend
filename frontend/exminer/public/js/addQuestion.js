@@ -3,6 +3,28 @@ tempExamCode = localStorage.getItem('addQuestionid')
 console.log(tempExamCode)
 localStorage.removeItem('addQuestionid')
 $(document).ready(function() {
+    $.ajax("https://node-examportal.herokuapp.com/checkExaminer", {
+            type: 'GET',
+            //contentType: "application/json",
+            headers: {
+                token: localStorage.getItem('token'),
+                Authorization: "Bearer "+localStorage.getItem('token')
+            },
+            success: function(data) {
+                document.getElementById('main').style.display='block';
+                return
+            },
+            error: function(error) {
+                  if(error.responseText=="unauthorized")
+                {
+                    console.log(error.responseText)
+                    window.location.replace('../../un.html')
+                }
+            
+            }
+
+        })
+
 
     var navListItems = $('div.setup-panel div a'),
         allWells = $('.setup-content'),
