@@ -1,8 +1,7 @@
 function removeQuestion(id){
 
-    console.log(id)
     let qsId = $("#"+id).parent().parent().attr('id')
-    console.log(qsId)
+
     $.ajax("https://node-examportal.herokuapp.com/exam/question/"+qsId, {
 
         type: 'DELETE',
@@ -20,7 +19,6 @@ function removeQuestion(id){
         }) 
 }
 function setQsId(id){
-    console.log('id ',id)
     $("#delQ").attr('id', id)
 }
 function updateQues(id,type) {
