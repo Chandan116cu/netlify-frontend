@@ -56,7 +56,6 @@ function updateQues(id,type) {
             formData.append('weightage', weightage);
             formData.append('answerType', "multipleOption");
             formData.append('questionImage', $('input[type=file]')[0].files[0]);
-            // return
     $.ajax("https://node-examportal.herokuapp.com/exam/question/" + id, {
         type: 'PATCH',
         dataType: 'json',
@@ -72,6 +71,7 @@ function updateQues(id,type) {
             location.reload(true)
         },
         error: function(error) {
+            alert('something went wrong')
             console.log(error)
         }
     })
@@ -129,10 +129,6 @@ $(document).ready(function(){
             Authorization: "Bearer "+localStorage.getItem('token')
         },
         success: function(data) {
-            if( data.msg == 'No question'){
-                alert("No question added in this exam")
-                return
-            }
             $.each(data, (index, item) => {
                 let indexTemplate = $("#index-template").html();
                 item.index = index + 1
@@ -149,10 +145,8 @@ $(document).ready(function(){
             })
         },
         error: function(error) {
-            if( error.responseText =='Not Found'){
-                alert("This exam has no Questions")
-                $(location).attr('href','../views/exam.html')
-            }
+            alert("This exam has no Questions")
+            $(location).attr('href','../views/exam.html')
         }
     })
 })
