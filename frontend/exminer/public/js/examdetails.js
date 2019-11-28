@@ -56,7 +56,7 @@ $(document).ready(function () {
     $('#btnSave').attr('disabled', true)
     $('.form-test input').keyup(function () {
         $("#addExamName").on("keyup", (event) => {
-            let regex1 = /^([a-zA-Z\s]){3,30}$/;
+            let regex1 = /^([a-zA-Z]){3,30}$/;
             if (regex1.test($("#addExamName").val()) == true) {
                 $('#view_Invalid1').hide()
                 $('#view_Valid1').show()
@@ -82,8 +82,8 @@ $(document).ready(function () {
             }
         })
         $("#addExamDuration").on("keyup", (event) => {
-            // let regex1 = /^([0-9]\s){1,4}$/;
-            let regex1= /^([0-9\s]){2,4}$/
+            // let regex1 = /^([0-9]s){1,4}$/;
+            let regex1= /^([0-9s]){2,4}$/
             if (regex1.test($("#addExamDuration").val()) == true) {
                 $('#view_Invalid3').hide()
                 $('#view_Valid3').show()
@@ -147,8 +147,8 @@ $(document).ready(function () {
     //     console.log("himanshu : ",isTrue)
     // })
     // $("#addExamDuration").on("keyup", (event) => {
-    //     // let regex1 = /^([0-9]\s){1,4}$/;
-    //     let regex1= /^([0-9\s]){2,4}$/
+    //     // let regex1 = /^([0-9]s){1,4}$/;
+    //     let regex1= /^([0-9s]){2,4}$/
     //     if (regex1.test($("#addExamDuration").val()) == true) {
     //         isTrue = true
     //         $('#view_Invalid3').hide()
