@@ -227,6 +227,9 @@ i {
 #main{
     display: none;
 }
+.color{
+    color: rgba(255, 255, 255, 0.9);
+}
 ::placeholder{
     font-size: 12px;
     vertical-align: middle;
