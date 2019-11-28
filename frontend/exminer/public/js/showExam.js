@@ -42,7 +42,7 @@ function editExamDetail(id) {
     let mainId = $('#' + id).parent().parent().parent().parent().attr('id')
     $('#' + mainId).hide()
     console.log(examObjId)
-    $.ajax("https://node-examportal.herokuapp.com/exam" + examObjId, {
+    $.ajax("https://node-examportal.herokuapp.com/exam/" + examObjId, {
         type: 'GET',
         dataType: 'json',
         contentType: "application/json",
