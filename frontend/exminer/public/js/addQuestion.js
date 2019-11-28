@@ -176,6 +176,7 @@ $(document).ready(function() {
                     }
                 }
                 document.getElementById("addtestWeightage").value = '';
+                alert('Question Added')
             },
             error: function (error) {
                 console.log(error + " " + "error occurred");
@@ -216,4 +217,8 @@ function logout() {
     localStorage.clear()
     location.replace("../../index.html")
 
+}
+
+function submitAllBtn() {
+    location.replace("./questions.html")
 }
