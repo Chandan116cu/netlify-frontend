@@ -1,6 +1,4 @@
 var tempExamCode = ''
-
-
 $(document).ready(function () {
 
     document.getElementById('span').innerHTML = "Welcome " + localStorage.getItem('loggedInName') + "! &nbsp;&nbsp;"
