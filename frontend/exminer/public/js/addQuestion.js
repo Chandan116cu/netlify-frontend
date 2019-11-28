@@ -217,3 +217,7 @@ function logout() {
     location.replace("../../index.html")
 
 }
+
+function submitAllBtn() {
+    location.replace("./questions.html")
+}

@@ -58,7 +58,7 @@ $(document).ready(function () {
     $('#btnSave').attr('disabled', true)
     $('.form-test input').keyup(function () {
         $("#addExamName").on("keyup", (event) => {
-            let regex1 = /^([a-zA-Z]){3,30}$/;
+            let regex1 = /^([a-zA-Z\s]){3,30}$/;
             if (regex1.test($("#addExamName").val()) == true) {
                 $('#view_Invalid1').hide()
                 $('#view_Valid1').show()
@@ -373,7 +373,5 @@ function excelUpload(event) {
 }
 
 function submitAllBtn() {
-
     location.replace("./questions.html")
-
 }
