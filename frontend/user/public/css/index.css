@@ -78,3 +78,16 @@ a:hover {
 .cd-intro {
     color: rgba(255, 255, 255, 1)
 }
+
+
+@media only screen and (max-width: 768px) {
+    .container{
+        width: 400px;
+    }
+    .btn{
+        margin-left: 25%;
+        font-size: 20px;
+    }
+
+
+}

@@ -1,6 +1,4 @@
 var tempExamCode = ''
-
-
 $(document).ready(function () {
 
     document.getElementById('span').innerHTML = "Welcome " + localStorage.getItem('loggedInName') + "! &nbsp;&nbsp;"
@@ -72,7 +70,7 @@ $(document).ready(function () {
         })
 
         $("#addExamCode").on("keyup", (event) => {
-            let regex1 = /^([a-zA-Z0-9 _-]){3,8}$/;        ;
+            let regex1 = /^([a-zA-Z0-9 _-]){3,8}$/;
             if (regex1.test($("#addExamCode").val()) == true) {
                 $('#view_Invalid2').hide()
                 $('#view_Valid2').show()
@@ -91,6 +89,7 @@ $(document).ready(function () {
                 $('#view_Valid3').show()
             }
             else {
+
                 $('#btnSave').attr('disabled',true)
                 $('#view_Valid3').hide()
                 $('#view_Invalid3').show()
@@ -332,6 +331,7 @@ $(document).ready(function () {
                     }
                 }
                 document.getElementById("addtestWeightage").value = '';
+                alert('Question Added')
             },
             error: function (error) {
                 console.log(error + " " + "error occurred");
@@ -373,5 +373,7 @@ function excelUpload(event) {
 }
 
 function submitAllBtn() {
-    location.replace("./questions.html")
+
+    location.replace("./exam.html")
+
 }
