@@ -306,7 +306,6 @@ $(document).ready(function () {
             contentType: false,
             processData: false,
             success: function (data) {
-                alert('question created')
                 document.getElementById("addtestQuestion").value = '';
                 // ("#addtestAnswer").value = '';
                 if (answerType == "multipleOption") {
@@ -375,6 +374,6 @@ function excelUpload(event) {
 
 function submitAllBtn() {
 
-    location.replace("./questions.html")
+    location.replace("./exam.html")
 
 }
