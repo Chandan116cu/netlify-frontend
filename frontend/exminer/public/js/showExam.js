@@ -31,6 +31,7 @@ function updateExam(examObjId) {
             location.reload(true)
         },
         error: function(error) {
+            alert('something went wrong')
             console.log(error)
         }
     })
@@ -53,6 +54,7 @@ function editExamDetail(id) {
             $("#display-form").append(Mustache.render(editForm, data))
         },
         error: function(error) {
+            alert('something went wrong')
             console.log(error)
         }
     })
@@ -76,6 +78,7 @@ function deleteExam(id) {
             location.reload(true)
         },
         error: function(error) {
+            alert('something went wrong')
             console.log(error)
         }
     })

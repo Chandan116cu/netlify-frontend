@@ -52,12 +52,7 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
-    //     $('.loader').hide()
-//     let today = new Date().toISOString().substr(0, 10);
-// document.querySelector("#today").value = today;
-
-// document.querySelector("#addExamTestDate").valueAsDate = new Date();
-
+   
     document.getElementById('btnSave').addEventListener('click', validateForm)
     function validateForm() {
         var testName = document.getElementById("addExamName").value;
@@ -129,17 +124,16 @@ $(document).ready(function () {
             data: JSON.stringify(examDetail),
             contentType: "application/json; charset=utf-8",
             success: function (recent) {
-                if (recent.message == "Exam Code already exist") {
-                    window.alert("Exam Code Already Exist");
-                    //location.replace("./views/examdetails.html")
-                } else {
-                    document.getElementById("addExamName").value = '';
-                    document.getElementById("addExamCode").value = '';
-                    document.getElementById("addExamDuration").value = '';
-                    document.getElementById("addExamTestDate").value = '';
-                }
+                alert("exam created");
+                document.getElementById("addExamName").value = '';
+                document.getElementById("addExamCode").value = '';
+                document.getElementById("addExamDuration").value = '';
+                document.getElementById("addExamTestDate").value = '';
+                
             },
             error: function (error) {
+                    alert("Exam Code Already Exist");
+                    // location.replace("./views/examdetails.html")
                 console.log("error : " + error)
             }
         })
@@ -225,6 +219,7 @@ $(document).ready(function () {
             contentType: false,
             processData: false,
             success: function (data) {
+                alert('question created')
                 document.getElementById("addtestQuestion").value = '';
                 // ("#addtestAnswer").value = '';
                 if (answerType == "multipleOption") {
