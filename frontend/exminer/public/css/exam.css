@@ -164,8 +164,11 @@ ul {
 
 .form1 {
     text-align: center;
-    margin-top: 50px;
+    margin-top: 95px;
     /* padding: 20px; */
+}
+#addExamDate{
+    width: 100%;
 }
 
 .addExamDetail {
@@ -342,7 +345,7 @@ option {
         width: 70%
     }
     .addExamDetail{
-        width: 70%;
+        width: 100%;
     }
     .addQuestion{
         width: 70%;
