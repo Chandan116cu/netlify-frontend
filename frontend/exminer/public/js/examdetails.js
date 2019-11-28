@@ -1,16 +1,15 @@
 var tempExamCode = ''
-
 $(document).ready(function () {
-   
+
     document.getElementById('span').innerHTML = "Welcome " + localStorage.getItem('loggedInName') + "! &nbsp;&nbsp;"
     var navListItems = $('div.setup-panel div a'),
         allWells = $('.setup-content'),
         allNextBtn = $('.nextBtn');
-
     allWells.hide();
 
     navListItems.click(function (e) {
         e.preventDefault();
+    
         var $target = $($(this).attr('href')),
             $item = $(this);
 
@@ -21,6 +20,7 @@ $(document).ready(function () {
             $target.show();
             $target.find('input:eq(0)').focus();
         }
+
     });
 
     allNextBtn.click(function () {
@@ -51,104 +51,183 @@ $(document).ready(function () {
     });
 });
 
+
 $(document).ready(function () {
-   
+    $('#btnSave').attr('disabled', true)
+    $('.form-test input').keyup(function () {
+        $("#addExamName").on("keyup", (event) => {
+            let regex1 = /^([a-zA-Z]){3,30}$/;
+            if (regex1.test($("#addExamName").val()) == true) {
+                $('#view_Invalid1').hide()
+                $('#view_Valid1').show()
+
+            }
+            else {
+                $('#btnSave').attr('disabled',true)
+                $('#view_Valid1').hide()
+                $('#view_Invalid1').show()
+            }
+        })
+
+        $("#addExamCode").on("keyup", (event) => {
+            let regex1 = /^([a-zA-Z0-9 _-]){3,8}$/;        ;
+            if (regex1.test($("#addExamCode").val()) == true) {
+                $('#view_Invalid2').hide()
+                $('#view_Valid2').show()
+            }
+            else {
+                $('#btnSave').attr('disabled',true)
+                $('#view_Valid2').hide()
+                $('#view_Invalid2').show()
+            }
+        })
+        $("#addExamDuration").on("keyup", (event) => {
+            // let regex1 = /^([0-9]\s){1,4}$/;
+            let regex1= /^([0-9\s]){2,4}$/
+            if (regex1.test($("#addExamDuration").val()) == true) {
+                $('#view_Invalid3').hide()
+                $('#view_Valid3').show()
+            }
+            else {
+                $('#btnSave').attr('disabled',true)
+                $('#view_Valid3').hide()
+                $('#view_Invalid3').show()
+            }
+        })
+        
+        let isTrue = true
+        if($('#addExamName').val() === ''){
+            isTrue = false
+        }
+        else if($('#addExamCode').val() === ''){
+            isTrue = false
+        }
+        else if($('#addExamDuration').val() === ''){
+            isTrue = false
+        }
+        if(isTrue  == true){
+            $('#btnSave').removeAttr('disabled')
+        }
+        else{
+            $('#btnSave').attr('disabled',true)
+        }
+
+    })
+
+    // let isTrue = false
+    // $("#addExamName").on("keyup", (event) => {
+    //     // console.log(event.target.value)
+    //     let regex1 = /^([a-zA-Z]){3,30}$/;
+    //     if (regex1.test($("#addExamName").val()) == true) {
+    //         isTrue = true
+    //         $('#view_Invalid1').hide()
+    //         $('#view_Valid1').show()
+    //     }
+    //     else {
+    //         isTrue = false
+    //         $('#view_Valid1').hide()
+    //         $('#view_Invalid1').show()
+    //     }
+    // })
+
+    // $("#addExamCode").on("keyup", (event) => {
+    //     // console.log(event.target.value)
+    //     let regex1 = /^([a-zA-Z0-9 _-]){3,8}$/;        ;
+    //     if (regex1.test($("#addExamCode").val()) == true) {
+    //         isTrue = true
+    //         $('#view_Invalid2').hide()
+    //         $('#view_Valid2').show()
+    //     }
+    //     else {
+    //         isTrue = false
+    //         $('#view_Valid2').hide()
+    //         $('#view_Invalid2').show()
+    //     }
+    //     console.log("himanshu : ",isTrue)
+    // })
+    // $("#addExamDuration").on("keyup", (event) => {
+    //     // let regex1 = /^([0-9]\s){1,4}$/;
+    //     let regex1= /^([0-9\s]){2,4}$/
+    //     if (regex1.test($("#addExamDuration").val()) == true) {
+    //         isTrue = true
+    //         $('#view_Invalid3').hide()
+    //         $('#view_Valid3').show()
+    //     }
+    //     else {
+    //         isTrue = false
+    //         $('#view_Valid3').hide()
+    //         $('#view_Invalid3').show()
+    //     }
+    //     console.log("himanshu : ",isTrue)
+    // })
+    // console.log("himanshu chauhan : ",isTrue)
+    // if(isTrue){
+    //     console.log('yes')
+    //     $('#btnSave').props('disabled',false)
+    // }
+
+    //     $('.loader').hide()
+    //     let today = new Date().toISOString().substr(0, 10);
+    // document.querySelector("#today").value = today;
+
+    // document.querySelector("#addExamTestDate").valueAsDate = new Date();
+
     document.getElementById('btnSave').addEventListener('click', validateForm)
     function validateForm() {
         var testName = document.getElementById("addExamName").value;
         var testCode = document.getElementById("addExamCode").value;
         var testDuration = document.getElementById("addExamDuration").value;
         var testDate = document.getElementById("addExamTestDate").value;
-        // if (testName === '' || testCode == '' || testDuration == '' || testDate == '') {
-        //     alert("Please fill all the fields")
-        //     return
-        // }
-         let flag = 0;
-        var regex1 = /^[a-zA-Z ]{1,30}$/;
-        var regex = /^[A-Za-z0-9 ]{1,30}$/;
-        var numbers = /^[0-9]+$/;
-        if (testName == "") {
-            alert("Please enter test Name")
-            flag=1;
-        }
-
-        else if(regex1.test($("#addExamName").val()) == false){
-            // console.log("hi")
-            alert("Please enter test Name")
-            flag=1;
-        }
-        else if (testCode == "") {
-            alert("Please enter test code")
-            flag=1;
-        }
-
-        else if(regex.test($("#addExamCode").val()) == false){
-            // console.log("hi")
-            alert("Please enter test code")
-            flag=1;
-        }
+       
+        var flag = 0;
         
-        else if (testDuration == "") {
-         alert("Please enter test duration")
-         flag=1;
-        }
-
-        else if(numbers.test($("#addExamDuration").val()) == false){
-            // console.log("hi")
-            alert("Please enter test duration")
-            flag=1;
-        }
-        else if (testDate == "") {
-            alert("Please enter exam date")
-            flag=1;
-        }
-        else if(flag==0){  
-        const testD = testDate.slice(0, 10);
-        const testd = testDate.slice(11, 16)
-        testDate = testD.concat(" " + testd + ":00")
-        tempExamCode = testCode
-        let examDetail = {
-            examName: testName,
-            examCode: tempExamCode,
-            examDuration: testDuration,
-            examStartTime: testDate
-        }
-        $.ajax("https://node-examportal.herokuapp.com/exam", {
-            type: "POST",
-            dataType: "json",
-            headers: {
-                token: localStorage.getItem('token'),
-                Authorization: "Bearer "+localStorage.getItem('token')
-            },
-            contentType: "application/json;charset=utf-8",
-            data: JSON.stringify(examDetail),
-            contentType: "application/json; charset=utf-8",
-            success: function (recent) {
-                alert("exam created");
-                document.getElementById("addExamName").value = '';
-                document.getElementById("addExamCode").value = '';
-                document.getElementById("addExamDuration").value = '';
-                document.getElementById("addExamTestDate").value = '';
-                
-            },
-            error: function (error) {
-                    alert("Exam Code Already Exist");
-                    // location.replace("./views/examdetails.html")
-                console.log("error : " + error)
+        
+        if (flag == 0) {
+            const testD = testDate.slice(0, 10);
+            const testd = testDate.slice(11, 16)
+            testDate = testD.concat(" " + testd + ":00")
+            tempExamCode = testCode
+            let examDetail = {
+                examName: testName,
+                examCode: tempExamCode,
+                examDuration: testDuration,
+                examStartTime: testDate
             }
-        })
-    }
+            $.ajax("https://node-examportal.herokuapp.com/exam", {
+                type: "POST",
+                dataType: "json",
+                headers: {
+                    token: localStorage.getItem('token'),
+                    Authorization: "Bearer " + localStorage.getItem('token')
+                },
+                contentType: "application/json;charset=utf-8",
+                data: JSON.stringify(examDetail),
+                contentType: "application/json; charset=utf-8",
+                success: function (recent) {
+                    document.getElementById("addExamName").value = '';
+                    document.getElementById("addExamCode").value = '';
+                    document.getElementById("addExamDuration").value = '';
+                    document.getElementById("addExamTestDate").value = '';
+                },
+                error: function (error){
+                    alert("Exam Code Already Exist");
+                }
+            })
+        }
     }
 })
 
 $(document).ready(function () {
     document.getElementById('submitBtn').addEventListener('click', (event) => {
-            
+
         var question = document.getElementById("addtestQuestion").value;
         var weightage = document.getElementById("addtestWeightage").value;
-        if (question === "") {
-            alert("Please enter question");
-            return
+        // if (question === "") {
+        //     alert("Please enter question");
+        //     return
+        // }
+        if ($("#addExamName").val().length == 0) {
+            $('#view_Invalid5').show()
         }
         var option = $("input[type=radio][name=colorRadio]:checked").val();
         if (option == undefined || option === '') {
@@ -174,10 +253,10 @@ $(document).ready(function () {
                 }
             })
             answer = answer.trim()
-            if (option1 === "" || option2 === "" || option3 === "" || option4 === "" || answer == ''|| answer===undefined) {
-                alert("Please fill all options and tick answers");
-                return
-            }
+            // if (option1 === "" || option2 === "" || option3 === "" || option4 === "" || answer == ''|| answer===undefined) {
+            //     alert("Please fill all options and tick answers");
+            //     return
+            // }
 
         } else if (option == "green") {
             option1 = $("#addtestOption1G").val();
@@ -186,20 +265,27 @@ $(document).ready(function () {
             option4 = $("#addtestOption4G").val();
             answerType = "singleOption"
             answer = $("input[type=radio][name=option1]:checked").val();
-            if (option1 === "" || option2 === "" || option3 === "" || option4 === "" || answer == ''||answer == undefined) {
-                alert("Please fill all options and select answer");
+            // if (option1 === "" || option2 === "" || option3 === "" || option4 === "" || answer == ''||answer == undefined) {
+            //     alert("Please fill all options and select answer");
+            //     return
+            // }
+            if (answer == undefined) {
+                alert("Please select answer");
                 return
             }
         }
-        if (weightage === "") {
-            alert("Please enter weightage");
-            return
+        // if (weightage === "") {
+        //     alert("Please enter weightage");
+        //     return
+        // }
+        if ($("#addtestWeightage").val().length == 0) {
+            $('#view_Invalid6').show()
         }
         var formData = new FormData();
 
-        formData.append('questionText',question);
-        formData.append('answer',answer);
-        formData.append('option1',option1);
+        formData.append('questionText', question);
+        formData.append('answer', answer);
+        formData.append('option1', option1);
         formData.append('option2', option2);
         formData.append('option3', option3);
         formData.append('option4', option4);
@@ -214,7 +300,7 @@ $(document).ready(function () {
             dataType: "JSON",
             headers: {
                 token: localStorage.getItem('token'),
-                Authorization: "Bearer "+localStorage.getItem('token')
+                Authorization: "Bearer " + localStorage.getItem('token')
             },
             contentType: false,
             processData: false,
@@ -257,11 +343,11 @@ $(document).ready(function () {
 
 //this uploads excel file
 function excelUpload(event) {
- 
+
     event.preventDefault();
     var formData = new FormData();
     formData.append('examCode', tempExamCode)
-   
+
     formData.append('excelFile', $('input[type=file]')[0].files[0])
     console.log(formData.get('excelFile'));
     $.ajax("https://node-examportal.herokuapp.com/exam/questions/uploadExcel", {
@@ -269,15 +355,15 @@ function excelUpload(event) {
         data: formData,
         headers: {
             token: localStorage.getItem('token'),
-            Authorization: "Bearer "+localStorage.getItem('token')
+            Authorization: "Bearer " + localStorage.getItem('token')
         },
         lowerCaseHeaders: true,
-        contentType:false,
+        contentType: false,
         processData: false,
         success: function (data) {
             alert("You have successfully uploaded the questions through excel file")
             $(location).attr('href', './exam.html')
-            
+
         },
         error: function (error) {
             console.log(error + " " + error)

@@ -78,6 +78,7 @@ $(document).ready(function () {
             $('#view_Invalid6').show()
         }
     })
+    
 
     $("#signUpSubmit").click(function validate() {
         var firstName = $("#firstName").val()
@@ -165,3 +166,16 @@ $(document).ready(function () {
         })
     })
 })
+function showpasswordtext()
+{
+  var x =  document.getElementById("inputPassword");
+ 
+    x.type = "text";
+}
+
+function showpassword()
+{
+  var x = document.getElementById("inputPassword")
+  
+    x.type = "password";
+}
