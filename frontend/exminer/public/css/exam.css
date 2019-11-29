@@ -4,7 +4,7 @@ body {
     background-color: #ebebeb;
     font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
 }
-li {
+.question-div ul li {
     margin-left: 20px;
     font-weight: 500;
     list-style-type: upper-alpha;
