@@ -373,6 +373,6 @@ function excelUpload(event) {
 
 function submitAllBtn() {
 
-    location.replace("./questions.html")
+    location.replace("./exam.html")
 
 }

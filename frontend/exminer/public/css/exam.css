@@ -4,10 +4,28 @@ body {
     background-color: #ebebeb;
     font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
 }
-
 li {
     margin-left: 20px;
     font-weight: 500;
+    list-style-type: upper-alpha;
+    font-size: 18px;
+}
+.more a {
+	color: #0254EB
+}
+.more a:visited {
+	color: #0254EB
+}
+.more a.morelink {
+	text-decoration:none;
+	outline: none;
+}
+.more .morecontent span {
+	display: none;
+}
+.list-type{
+    font-size: 20px;
+    font-weight: bolder;
 }
 img{
     height: 50%;
