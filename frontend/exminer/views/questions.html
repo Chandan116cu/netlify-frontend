@@ -72,16 +72,21 @@
                 {{#status}}
                 <img src="{{questionImage}}" /> {{/status}}
                 <ul>
-                    <li>{{option1}}</li>
-                    <li>{{option2}}</li>
-                    <li>{{option3}}</li>
-                    <li>{{option4}}</li>
-                </ul>
-                <h6>Answer : {{answer}} </h6>
+                    {{#opt1}}
+                        <li class="more option1">{{option1}}</li>
+                    {{/opt1}}
+                    {{#opt2}}
+                        <li class="more option2">{{option2}}</li>
+                    {{/opt2}}
+                    {{#opt3}}
+                        <li class="more option3">{{option3}}</li>
+                    {{/opt3}}
+                    {{#opt4}}
+                        <li class="more option4">{{option4}}</li>
+                    {{/opt4}}
                 <div class="btn1">
                     <button type="button" class="btn btn-outline-info" id="editQs{{index}}" onclick="editQuestion(this.id)">Edit</button>
                     <button type="button" id="delQues{{index}}" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal1" onclick="setQsId(this.id)">Delete</button>
-                    <!-- <button type="button" class="btn btn-outline-danger" id="delQues{{index}}" onclick="removeQuestion(this.id)">Delete</button> -->
                 </div>
             </div>
     </script>
@@ -176,7 +181,6 @@
         <div class="modal-dialog " role="document">
             <div class="modal-content confirm-box">
                 <div class="modal-header">
-                    <!-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> -->
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
