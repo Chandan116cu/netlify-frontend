@@ -87,9 +87,9 @@
             {{ #data }}
             <tbody>
                 <tr>
-                    <td>{{ email }}</td>
-                    <td>{{ name }}</td>
-                    <td>{{ createdDate}}</td>
+                    <td><b>{{ email }}</b></td>
+                    <td><b>{{ name }}</b></td>
+                    <td><b>{{ createdDate}}</b></td>
                     <td><button class="btn btn-outline-danger my-2 my-sm-0 " type="submit" id="{{ _id }}" data-toggle="modal" data-target="#exampleModal1" onclick="deleteexaminer(this.id)">Delete</button></td>
                 </tr>
                 {{ /data }}
