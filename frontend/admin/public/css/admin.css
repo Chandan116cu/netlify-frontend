@@ -12,7 +12,7 @@ li {
     font-weight: 500;
 }
 .container{
-    color: white;
+    background-color: white;
 }
 li:hover {
     background-color: #c4e3f3;
