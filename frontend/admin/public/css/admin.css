@@ -223,6 +223,7 @@ i {
 
 .show-examiner-table {
     margin-top: 8%;
+    border:2px solid black
 }
 #main{
     display: none;
