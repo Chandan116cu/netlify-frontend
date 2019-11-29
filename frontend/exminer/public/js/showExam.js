@@ -28,6 +28,7 @@ function updateExam(examObjId) {
         },
         data: JSON.stringify(examDetail),
         success: function(data) {
+            alert('Updated')
             location.reload(true)
         },
         error: function(error) {
@@ -42,7 +43,7 @@ function editExamDetail(id) {
     let mainId = $('#' + id).parent().parent().parent().parent().attr('id')
     $('#' + mainId).hide()
     console.log(examObjId)
-    $.ajax("https://node-examportal.herokuapp.com/exam" + examObjId, {
+    $.ajax("https://node-examportal.herokuapp.com/exam/" + examObjId, {
         type: 'GET',
         dataType: 'json',
         contentType: "application/json",
@@ -86,6 +87,8 @@ function deleteExam(id) {
 }
 
 $(document).ready(() => {
+    
+    
         $.ajax("https://node-examportal.herokuapp.com/exam", {
             type: 'GET',
             dataType: 'json',
@@ -96,13 +99,14 @@ $(document).ready(() => {
             },
             success: function(data) {
                 if (data.msg == 'No Exam') {
-                    alert("Exam Doesnot exist in your account")
+                    alert("Exam Does not exist in your account")
                     return
                 }
                 let parent = $(".exam-detail")
                     // load html template to display exam detail
                 $.each(data, (index, values) => {
                     let html = $('#display-exam-detail').html()
+                    values.examStartTime= moment(values.examStartTime).format('LLL');
                     values.index = index
                     parent.append(Mustache.render(html, values))
                 })
@@ -137,3 +141,4 @@ $(document).ready(() => {
 
         })
     })
+    

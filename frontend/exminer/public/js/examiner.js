@@ -108,7 +108,6 @@ function editDetails() {
     var name = document.getElementById('loggedInName').value
     var phone = document.getElementById('loggedInPhone').value
     var college = document.getElementById('loggedInCollege').value
-    var pass = document.getElementById('loggedInPassword').value
 
     $.ajax("https://node-examportal.herokuapp.com/examiner", {
         type: 'PATCH',
@@ -124,7 +123,6 @@ function editDetails() {
             "name": name,
             "phoneNumber": phone,
             "collegeName": college,
-            "password": pass
         }),
 
         success: function (data) {

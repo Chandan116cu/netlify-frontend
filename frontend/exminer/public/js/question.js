@@ -68,6 +68,7 @@ function updateQues(id,type) {
         },
         data: formData,
         success: function(data) {
+            alert('Updated')
             location.reload(true)
         },
         error: function(error) {
