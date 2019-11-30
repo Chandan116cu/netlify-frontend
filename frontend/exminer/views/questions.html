@@ -73,18 +73,10 @@
                 <img src="{{questionImage}}" />
                 {{/status}}
                 <ul>
-                    {{#opt1}}
-                        <li class="more option1">{{option1}}</li>
-                    {{/opt1}}
-                    {{#opt2}}
-                        <li class="more option2">{{option2}}</li>
-                    {{/opt2}}
-                    {{#opt3}}
-                        <li class="more option3">{{option3}}</li>
-                    {{/opt3}}
-                    {{#opt4}}
-                        <li class="more option4">{{option4}}</li>
-                    {{/opt4}}
+                    {{#opt1}}<li class="more" id ="option1{{index}}">{{option1}}</li>{{/opt1}}
+                    {{#opt2}}<li class="more" id="option2{{index}}">{{option2}}</li>{{/opt2}}
+                    {{#opt3}}<li class="more" id="option3{{index}}">{{option3}}</li>{{/opt3}}
+                    {{#opt4}}<li class="more" id ="option4{{index}}">{{option4}}</li>{{/opt4}}
                 </ul>
                 <div class="btn1">
                     <button type="button" class="btn btn-outline-info" id="editQs{{index}}" onclick="editQuestion(this.id)">Edit</button>

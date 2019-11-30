@@ -1,5 +1,5 @@
 function removeQuestion(id){
-
+    
     let qsId = $("#"+id).parent().parent().attr('id')
 
     $.ajax("https://node-examportal.herokuapp.com/exam/question/"+qsId, {
@@ -145,7 +145,7 @@ $(document).ready(function(){
                 
                 let arr = item.answer.split(' ')
                 $.each( arr, ( i, val )=>{
-                    $('.'+val).css({'color':'green','font-weight':'bold'})
+                    $('#'+val+item.index).css({'color':'green','font-weight':'bold'})
                 })
             })
             //this code is to show less length of answer paragraph
