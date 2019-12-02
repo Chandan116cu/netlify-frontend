@@ -11,7 +11,9 @@ li {
     margin-left: 50px;
     font-weight: 500;
 }
-
+.Container{
+    background-color: white;
+}
 .middle{
     vertical-align: middle;
 }
