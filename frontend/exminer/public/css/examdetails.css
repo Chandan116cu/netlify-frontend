@@ -1,4 +1,3 @@
-
 body {
     margin-top: 40px;
     background-color: #ebebeb;
@@ -138,8 +137,6 @@ label {
     content: " ";
     width: 100%;
     height: 1px;
-    
-    /* z-order: 0; */
 }
 
 .stepwizard-step {
@@ -267,6 +264,7 @@ label {
         content: " ";
         width: 100%;
         height: 1px;
+        
     }
     
     .stepwizard-step {
