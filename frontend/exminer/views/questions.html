@@ -65,25 +65,25 @@
         <span class="qustion-index"><a href="#{{_id}}" >Question-{{index}}</a></span>
     </script>
     <script id="question-template-body" type="text/html">
-        <div class="row">
+        <div class="row fixed">
             <div class="col-md-12 question-div" id="{{_id}}">
                 <h3>Question-{{index}}</h3>
                 <p>{{questionText}}</p>
                 {{#status}}
-                <img src="{{questionImage}}" /> {{/status}}
+                <img src="{{questionImage}}" />
+                {{/status}}
                 <ul>
-                    <li>{{option1}}</li>
-                    <li>{{option2}}</li>
-                    <li>{{option3}}</li>
-                    <li>{{option4}}</li>
+                    {{#opt1}}<li class="more" id ="option1{{index}}">{{option1}}</li>{{/opt1}}
+                    {{#opt2}}<li class="more" id="option2{{index}}">{{option2}}</li>{{/opt2}}
+                    {{#opt3}}<li class="more" id="option3{{index}}">{{option3}}</li>{{/opt3}}
+                    {{#opt4}}<li class="more" id ="option4{{index}}">{{option4}}</li>{{/opt4}}
                 </ul>
-                <h6>Answer : {{answer}} </h6>
                 <div class="btn1">
                     <button type="button" class="btn btn-outline-info" id="editQs{{index}}" onclick="editQuestion(this.id)">Edit</button>
                     <button type="button" id="delQues{{index}}" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal1" onclick="setQsId(this.id)">Delete</button>
-                    <!-- <button type="button" class="btn btn-outline-danger" id="delQues{{index}}" onclick="removeQuestion(this.id)">Delete</button> -->
                 </div>
             </div>
+        </div>
     </script>
     <!-- edit question template for multiple option -->
     <script id="edit-question-template" type="text/html">
@@ -176,7 +176,6 @@
         <div class="modal-dialog " role="document">
             <div class="modal-content confirm-box">
                 <div class="modal-header">
-                    <!-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> -->
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>

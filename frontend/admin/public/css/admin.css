@@ -11,7 +11,15 @@ li {
     margin-left: 50px;
     font-weight: 500;
 }
-
+.container{
+    background-color: white;
+}
+.middle{
+    vertical-align: middle;
+}
+.table-bordered td, .table-bordered th{
+    vertical-align: middle;
+}
 li:hover {
     background-color: #c4e3f3;
     border-radius: 6px;
