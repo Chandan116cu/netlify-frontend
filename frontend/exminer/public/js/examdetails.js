@@ -395,7 +395,7 @@ function excelUpload(event) {
 }
 
 function submitAllBtn() {
-
+    localStorage.setItem('examCode',tempExamCode)
     location.replace("./questions.html")
 
 }
