@@ -1,6 +1,13 @@
 var tempExamCode = ''
-$(document).ready(function () {
 
+
+$(document).ready(function () {
+    document.getElementById('exam').style.fontWeight='700';
+    document.getElementById('exam').style.color='#007bff';
+
+    document.getElementById('disable').style.display='none'
+    document.getElementById('disabled2').style.display='none'
+    document.getElementById('disabled3').style.display='none'
     document.getElementById('span').innerHTML = "Welcome " + localStorage.getItem('loggedInName') + "! &nbsp;&nbsp;"
     var navListItems = $('div.setup-panel div a'),
         allWells = $('.setup-content'),
@@ -22,13 +29,19 @@ $(document).ready(function () {
         }
 
     });
-
+    
     allNextBtn.click(function () {
+        document.getElementById('addQuestion').style.fontWeight='700';
+    document.getElementById('addQuestion').style.color='#007bff';
+    document.getElementById('upload').style.fontWeight='400';
+    document.getElementById('upload').style.color='black';
+
         var curStep = $(this).closest(".setup-content"),
             curStepBtn = curStep.attr("id"),
             nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
             curInputs = curStep.find("input[type='text'],input[type='url']"),
             isValid = true;
+        // document.getElementById('disabled3').href='#step-3'
 
         $(".form-group").removeClass("has-error");
         for (var i = 0; i < curInputs.length; i++) {
@@ -56,7 +69,7 @@ $(document).ready(function () {
     $('#btnSave').attr('disabled', true)
     $('.form-test input').keyup(function () {
         $("#addExamName").on("keyup", (event) => {
-            let regex1 = /^([a-zA-Z]){3,30}$/;
+            let regex1 = /^([a-zA-Z\s]){3,30}$/;
             if (regex1.test($("#addExamName").val()) == true) {
                 $('#view_Invalid1').hide()
                 $('#view_Valid1').show()
@@ -70,7 +83,7 @@ $(document).ready(function () {
         })
 
         $("#addExamCode").on("keyup", (event) => {
-            let regex1 = /^([a-zA-Z0-9 _-]){3,8}$/;
+            let regex1 = /^([a-zA-Z0-9 _-]){3,8}$/;        ;
             if (regex1.test($("#addExamCode").val()) == true) {
                 $('#view_Invalid2').hide()
                 $('#view_Valid2').show()
@@ -82,14 +95,13 @@ $(document).ready(function () {
             }
         })
         $("#addExamDuration").on("keyup", (event) => {
-            // let regex1 = /^([0-9]s){1,4}$/;
-            let regex1= /^([0-9s]){2,4}$/
+            // let regex1 = /^([0-9]\s){1,4}$/;
+            let regex1= /^([0-9\s]){0,4}$/
             if (regex1.test($("#addExamDuration").val()) == true) {
                 $('#view_Invalid3').hide()
                 $('#view_Valid3').show()
             }
             else {
-
                 $('#btnSave').attr('disabled',true)
                 $('#view_Valid3').hide()
                 $('#view_Invalid3').show()
@@ -147,8 +159,8 @@ $(document).ready(function () {
     //     console.log("himanshu : ",isTrue)
     // })
     // $("#addExamDuration").on("keyup", (event) => {
-    //     // let regex1 = /^([0-9]s){1,4}$/;
-    //     let regex1= /^([0-9s]){2,4}$/
+    //     // let regex1 = /^([0-9]\s){1,4}$/;
+    //     let regex1= /^([0-9\s]){2,4}$/
     //     if (regex1.test($("#addExamDuration").val()) == true) {
     //         isTrue = true
     //         $('#view_Invalid3').hide()
@@ -209,6 +221,17 @@ $(document).ready(function () {
                     document.getElementById("addExamCode").value = '';
                     document.getElementById("addExamDuration").value = '';
                     document.getElementById("addExamTestDate").value = '';
+                    document.getElementById('step-1').style.display = 'none';
+                    document.getElementById('step-2').style.display = 'block';
+                    document.getElementById('step-3').style.display = 'none';
+                    document.getElementById('exam').style.fontWeight='400';
+                    document.getElementById('exam').style.color='black';
+                    document.getElementById('upload').style.fontWeight='700';
+                    document.getElementById('upload').style.color='#007bff';
+
+
+
+                    // down.innerHTML = "Link disabled";
                 },
                 error: function (error){
                     alert("Exam Code Already Exist");
@@ -331,7 +354,6 @@ $(document).ready(function () {
                     }
                 }
                 document.getElementById("addtestWeightage").value = '';
-                alert('Question Added')
             },
             error: function (error) {
                 console.log(error + " " + "error occurred");
@@ -374,6 +396,6 @@ function excelUpload(event) {
 
 function submitAllBtn() {
 
-    location.replace("./exam.html")
+    location.replace("./questions.html")
 
 }
