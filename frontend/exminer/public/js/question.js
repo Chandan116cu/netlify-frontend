@@ -14,7 +14,6 @@ function removeQuestion(id){
             location.reload(true)
             },
         error: function(error) {
-           console.log(error)
             }
         }) 
 }
@@ -73,8 +72,7 @@ function updateQues(id,type) {
         },
         error: function(error) {
             alert('something went wrong')
-            console.log(error)
-        }
+                   }
     })
 }
 
@@ -114,7 +112,6 @@ function editQuestion(id) {
             }
         },
         error: function(error) {
-            console.log(error)
         }
     })
 }

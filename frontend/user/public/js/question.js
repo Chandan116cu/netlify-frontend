@@ -136,7 +136,7 @@ $(document).ready(function() {
             
         },
         error: function(err) {
-            console.log(err)
+           
         }
     })
 })
@@ -158,7 +158,7 @@ $(document).on('click', '#submitAnswer', function() {
         checkedOption: value,
         qId: questionId
     }
-    console.log(dataToSend)
+    
     $.ajax("https://node-examportal.herokuapp.com/question", {
         type: 'POST',
         dataType: 'JSON',
@@ -173,7 +173,7 @@ $(document).on('click', '#submitAnswer', function() {
             $('#nextQuestion').trigger("click");
         },
         error: function(error) {
-            console.log(error)
+         
         }
     })
 })
@@ -204,7 +204,7 @@ $(document).on('click', '#nextQuestion', function() {
             }
         },
         error: function(err) {
-            console.log(err)
+           
         }
     })
 })
@@ -233,7 +233,7 @@ $(document).on('click', '#previousQuestion', function() {
             loadQuestions(data.questions, data.startTime, data.duration)
         },
         error: function(err) {
-            console.log(err)
+           
         }
     })
 })
@@ -257,7 +257,7 @@ $(document).on('click', '#modalEndTest', function() {
             $(location).attr('href', './endTest.html')
         },
         error: function(error) {
-            console.log(error)
+           
         }
     })
 })
@@ -304,7 +304,7 @@ $(document).on('click', '.circle', function() {
             loadQuestions(data.questions, data.startTime, data.duration)
         },
         error: function(error) {
-            console.log(error)
+          
         }
     })
 })

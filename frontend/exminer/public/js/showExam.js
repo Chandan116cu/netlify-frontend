@@ -33,7 +33,7 @@ function updateExam(examObjId) {
         },
         error: function(error) {
             alert('something went wrong')
-            console.log(error)
+          
         }
     })
 }
@@ -42,7 +42,6 @@ function editExamDetail(id) {
     let examObjId = $('#' + id).parent().parent().attr('id')
     let mainId = $('#' + id).parent().parent().parent().parent().attr('id')
     $('#' + mainId).hide()
-    console.log(examObjId)
     $.ajax("https://node-examportal.herokuapp.com/exam/" + examObjId, {
         type: 'GET',
         dataType: 'json',
@@ -57,7 +56,7 @@ function editExamDetail(id) {
         },
         error: function(error) {
             alert('something went wrong')
-            console.log(error)
+           
         }
     })
 }
@@ -81,7 +80,7 @@ function deleteExam(id) {
         },
         error: function(error) {
             alert('something went wrong')
-            console.log(error)
+           
         }
     })
 }
@@ -121,7 +120,6 @@ $(document).ready(() => {
         })
        $.ajax("https://node-examportal.herokuapp.com/checkExaminer", {
             type: 'GET',
-            //contentType: "application/json",
             headers: {
                 token: localStorage.getItem('token'),
                 Authorization: "Bearer "+localStorage.getItem('token')
@@ -133,8 +131,7 @@ $(document).ready(() => {
             error: function(error) {
                   if(error.responseText=="unauthorized")
                 {
-                    console.log(error.responseText)
-                   // window.location.replace('../../un.html')
+                
                 }
             
             }

@@ -12,7 +12,6 @@ $(document).ready(function () {
         }
     })
     $("#loggedInPhone").on("keyup", (event) => {
-        // console.log(event.target.value);
         let regex1 = /^[5-9]\d{9}$/;
 
         if (regex1.test($("#loggedInPhone").val()) == true) {
@@ -36,8 +35,7 @@ $(document).ready(function () {
 
         },
         success: function (data) {
-            console.log(data)
-            document.getElementById('main').style.display='block';
+                       document.getElementById('main').style.display='block';
             
 
         },
@@ -46,7 +44,6 @@ $(document).ready(function () {
             {
                 window.location.replace('../../un.html')
             }
-            console.log('not working')
         }
     })
 
@@ -69,7 +66,6 @@ function showEdit() {
 
         },
         error: function (error) {
-            console.log('not working')
         }
     })
 }
@@ -84,12 +80,10 @@ function showName() {
 
         },
         success: function (data) {
-            console.log(data)
-            document.getElementById('span').innerHTML = 'Welcome ' + data.name + '! &nbsp; &nbsp; '
+           document.getElementById('span').innerHTML = 'Welcome ' + data.name + '! &nbsp; &nbsp; '
             localStorage.setItem("loggedInName", data.name)
         },
         error: function (error) {
-            console.log('not working')
         }
     })
 
@@ -133,7 +127,6 @@ function editDetails() {
 
         },
         error: function (error) {
-            // console.log('not updated')
             window.alert('Not Updated')
         }
     })

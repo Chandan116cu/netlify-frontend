@@ -37,7 +37,7 @@ $(document).on('click', '#verify',function () {
                 alert("An error occured please login again")
                 location.replace('./login.html')
                 
-                console.log(error);
+              
             }
         })
     })

@@ -110,12 +110,10 @@ $(document).ready(function() {
     
             },
             success: function (data) {
-                console.log(data)
                 document.getElementById('span').innerHTML = 'Welcome ' + data.name + '! &nbsp; &nbsp; '
                 localStorage.setItem("loggedInName", data.name)
             },
             error: function (error) {
-                console.log('not working')
             }
         })
     
@@ -155,7 +153,6 @@ $(document).ready(function() {
             return
         }
         if (flag == 1) {
-            //console.log("hello buddy");
 
             $.ajax("https://node-examportal.herokuapp.com/examiner", {
                 type: "POST",
@@ -177,8 +174,6 @@ $(document).ready(function() {
 
                 }),
                 success: function(recent) {
-                    console.log("..........");
-                    console.log(recent.message);
                     if (recent.message == "user already exist") {
                         window.alert("User Already Exist");
                     } else {
@@ -188,7 +183,6 @@ $(document).ready(function() {
 
                 },
                 error: function() {
-                    console.log("Something went wrong");
                 }
 
             });

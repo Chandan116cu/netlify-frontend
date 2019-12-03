@@ -127,64 +127,6 @@ $(document).ready(function () {
 
     })
 
-    // let isTrue = false
-    // $("#addExamName").on("keyup", (event) => {
-    //     // console.log(event.target.value)
-    //     let regex1 = /^([a-zA-Z]){3,30}$/;
-    //     if (regex1.test($("#addExamName").val()) == true) {
-    //         isTrue = true
-    //         $('#view_Invalid1').hide()
-    //         $('#view_Valid1').show()
-    //     }
-    //     else {
-    //         isTrue = false
-    //         $('#view_Valid1').hide()
-    //         $('#view_Invalid1').show()
-    //     }
-    // })
-
-    // $("#addExamCode").on("keyup", (event) => {
-    //     // console.log(event.target.value)
-    //     let regex1 = /^([a-zA-Z0-9 _-]){3,8}$/;        ;
-    //     if (regex1.test($("#addExamCode").val()) == true) {
-    //         isTrue = true
-    //         $('#view_Invalid2').hide()
-    //         $('#view_Valid2').show()
-    //     }
-    //     else {
-    //         isTrue = false
-    //         $('#view_Valid2').hide()
-    //         $('#view_Invalid2').show()
-    //     }
-    //     console.log("himanshu : ",isTrue)
-    // })
-    // $("#addExamDuration").on("keyup", (event) => {
-    //     // let regex1 = /^([0-9]\s){1,4}$/;
-    //     let regex1= /^([0-9\s]){2,4}$/
-    //     if (regex1.test($("#addExamDuration").val()) == true) {
-    //         isTrue = true
-    //         $('#view_Invalid3').hide()
-    //         $('#view_Valid3').show()
-    //     }
-    //     else {
-    //         isTrue = false
-    //         $('#view_Valid3').hide()
-    //         $('#view_Invalid3').show()
-    //     }
-    //     console.log("himanshu : ",isTrue)
-    // })
-    // console.log("himanshu chauhan : ",isTrue)
-    // if(isTrue){
-    //     console.log('yes')
-    //     $('#btnSave').props('disabled',false)
-    // }
-
-    //     $('.loader').hide()
-    //     let today = new Date().toISOString().substr(0, 10);
-    // document.querySelector("#today").value = today;
-
-    // document.querySelector("#addExamTestDate").valueAsDate = new Date();
-
     document.getElementById('btnSave').addEventListener('click', validateForm)
     function validateForm() {
         var testName = document.getElementById("addExamName").value;
@@ -357,7 +299,6 @@ $(document).ready(function () {
                 alert("Question Added")
             },
             error: function (error) {
-                console.log(error + " " + "error occurred");
             }
         });
     })
@@ -373,7 +314,6 @@ function excelUpload(event) {
     formData.append('examCode', tempExamCode)
 
     formData.append('excelFile', $('input[type=file]')[0].files[0])
-    console.log(formData.get('excelFile'));
     $.ajax("https://node-examportal.herokuapp.com/exam/questions/uploadExcel", {
         type: 'POST',
         data: formData,
@@ -390,7 +330,6 @@ function excelUpload(event) {
 
         },
         error: function (error) {
-            console.log(error + " " + error)
         }
     })
 }

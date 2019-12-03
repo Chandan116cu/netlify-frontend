@@ -83,7 +83,7 @@ function showStudents() {
             }
         },
         error: function(error) {
-            console.log(error)
+          
         }
     })
 }
@@ -103,7 +103,7 @@ function studentDetails(a) {
             'token': localStorage.getItem('token')
         },
         success: function(data) {
-            console.log(data)
+          
             $('#tcan').empty()
             let tr = document.createElement('tr')
             tr.innerHTML = "<th>" + " Student Email " + "</th>"+ "<th>" + " Student Name " + "</th>" + "<th>" + " Exam Code " + "</th>" + "<th>" + "Total Score" + "</th>" + "<th>" + "Maximum Marks" + "</th>" + "<th>" + "Percentage %" + "</th>";
@@ -126,7 +126,7 @@ function studentDetails(a) {
             $('#myChart').hide()
         },
         error: function(error) {
-            console.log('error')
+           
         }
     })
 }
