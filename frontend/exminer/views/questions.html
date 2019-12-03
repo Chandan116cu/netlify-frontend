@@ -22,6 +22,14 @@
     });
     </script>
 </head>
+<style>
+    #question-Index {
+  /* background-color: lightblue; */
+  height: 500px;
+  width: 200px;
+  overflow-y: scroll;
+}
+</style>
 
 <body>
     <div id="main">
@@ -42,7 +50,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" onclick="location.href='exam.html'">Test Collections</a>
+                    <a class="nav-link" onclick="location.href='exam.html'">Exam Collections</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
@@ -52,12 +60,15 @@
         </div>
     </nav>
     <!-- append view question template -->
-    <div class="container question-div-pos" id="mainDiv">
-        <div class="row qrow">
-            <div class="col-md-10" id="question-Display"></div>
-            <div class="col-md-2" id="question-Index"></div>
+    
+        <div class="container question-div-pos" id="mainDiv">
+            <div class="row">
+               <div class="col-xs-6 col-md-4" id="question-Index"></div>
+               <div class="col-xs-12 col-sm-6 col-md-8" id="question-Display"></div>
+            </div>
         </div>
-    </div>
+         
+    
     <!-- append edit question template -->
     <div class="container-fluid" id="display-edit-form"></div>
     <!-- display question template -->
