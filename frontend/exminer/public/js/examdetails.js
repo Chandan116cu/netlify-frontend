@@ -133,7 +133,8 @@ $(document).ready(function () {
         var testCode = document.getElementById("addExamCode").value;
         var testDuration = document.getElementById("addExamDuration").value;
         var testDate = document.getElementById("addExamTestDate").value;
-       
+        localStorage.setItem('examName',testName);
+        localStorage.setItem('examCode',testCode);
         var flag = 0;
         
         
@@ -170,6 +171,9 @@ $(document).ready(function () {
                     document.getElementById('exam').style.color='black';
                     document.getElementById('upload').style.fontWeight='700';
                     document.getElementById('upload').style.color='#007bff';
+                    document.getElementById('exam-card').style.display='block';
+                    document.getElementById('sampleExamName').innerHTML=localStorage.getItem('examName');
+                    document.getElementById('sampleExamCode').innerHTML=localStorage.getItem('examCode');
 
 
 
