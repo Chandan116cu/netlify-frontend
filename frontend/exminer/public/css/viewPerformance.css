@@ -13,7 +13,9 @@ li {
     transition-duration: 0.8s;
     color: white;
 } */
-
+.loading{
+    display: none;
+}
 .main {
     margin-top: 7%;
 }

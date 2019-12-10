@@ -98,12 +98,15 @@ function studentDetails(a) {
     $.ajax("https://node-examportal.herokuapp.com/examiner/exams/students", {
         type: 'GET',
         dataType: 'JSON',
+        beforeSend: function() {
+            $('.loading').fadeIn()
+        },
         headers: {
             'examId': a.id,
             'token': localStorage.getItem('token')
         },
         success: function(data) {
-          
+            $('.loading').fadeOut()
             $('#tcan').empty()
             let tr = document.createElement('tr')
             tr.innerHTML = "<th>" + " Student Email " + "</th>"+ "<th>" + " Student Name " + "</th>" + "<th>" + " Exam Code " + "</th>" + "<th>" + "Total Score" + "</th>" + "<th>" + "Maximum Marks" + "</th>" + "<th>" + "Percentage %" + "</th>";
