@@ -240,10 +240,10 @@ $(document).ready(function () {
                 return
             }
         }
-        // if (weightage === "") {
-        //     alert("Please enter weightage");
-        //     return
-        // }
+        if (weightage === "") {
+            alert("Please enter weightage");
+            return
+        }
         if ($("#addtestWeightage").val().length == 0) {
             $('#view_Invalid6').show()
         }

@@ -141,7 +141,7 @@ $(document).ready(function() {
     })
 })
 
-$(document).on('click', '#submitAnswer', function() {
+$(document).on('click', '#submitAnswer', async function() {
     let questionId = $(this).parent().parent().parent().parent().children().children().children().attr('id')
     let examCode = $(this).parent().parent().parent().parent().children().children().children().children().html()
     let value = []
@@ -159,7 +159,7 @@ $(document).on('click', '#submitAnswer', function() {
         qId: questionId
     }
     
-    $.ajax("https://node-examportal.herokuapp.com/question", {
+    await $.ajax("https://node-examportal.herokuapp.com/question", {
         type: 'POST',
         dataType: 'JSON',
         contentType: "application/json;charset=utf-8",
@@ -168,9 +168,9 @@ $(document).on('click', '#submitAnswer', function() {
             Authorization: "Bearer "+localStorage.getItem('token')
         },
         data: JSON.stringify(dataToSend),
-        success: function(data) {
-            $('#' + questionId + ".circle").css('background-color', "green")
-            $('#nextQuestion').trigger("click");
+        success: async function(data) {
+            await $('#' + questionId + ".circle").css('background-color', "green")
+            await $('#nextQuestion').trigger("click");
         },
         error: function(error) {
          
