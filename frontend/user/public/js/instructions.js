@@ -79,7 +79,7 @@ $(document).ready(function() {
         success: function(data) {
             var minToMilliSec = data.examData.examDuration * 60000;
             checkTimeForTest(data.examData.examStartTime,minToMilliSec)
-            document.getElementById('username').innerHTML = "Hie "+localStorage.getItem('name')
+            document.getElementById('username').innerHTML = "Welcome "+localStorage.getItem('name')
         },
         error: function(error) {
             if(error.status === 401){
