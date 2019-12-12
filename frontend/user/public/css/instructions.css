@@ -101,3 +101,9 @@ ul {
     font-size: 20px;
     font-weight: bold;
 }
+
+.navbar-collapse{
+    position: absolute;
+    top: 5px;
+    left: 18px;
+}
