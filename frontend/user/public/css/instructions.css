@@ -105,5 +105,5 @@ ul {
 .navbar-collapse{
     position: absolute;
     top: 5px;
-    left: 18px;
+    right: 18px;
 }
